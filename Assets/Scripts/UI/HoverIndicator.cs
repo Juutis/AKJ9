@@ -14,8 +14,14 @@ public class HoverIndicator : MonoBehaviour
 
     public void Initialize() {
         fill = this.FindChildObject("Fill").GetComponent<SpriteRenderer>();
+        originalFillColor = fill.color;
         border = this.FindChildObject("Border").GetComponent<SpriteRenderer>();
+        originalBorderColor = border.color;
         Hide();
+    }
+
+    public void SetSize(float size) {
+        transform.localScale = new Vector3(size, size, size);
     }
 
     public void Show(Vector3 pos) {
@@ -25,7 +31,7 @@ public class HoverIndicator : MonoBehaviour
         border.enabled = true;
     }
 
-    public void ChangeTint(Color color) {
+    public void SetColorTint(Color color) {
         Color fillColor = color;
         fillColor.a = originalFillColor.a;
         fill.color = fillColor;

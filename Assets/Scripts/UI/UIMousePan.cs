@@ -23,11 +23,11 @@ public class UIMousePan : MonoBehaviour
     {
         Vector2 mous = Input.mousePosition - new Vector3(Screen.width / 2, Screen.height / 2, 0f);
         Vector3 pos = Camera.main.ScreenToViewportPoint(mous);
-        if (pos.magnitude > 0.3f) {
-            if (Mathf.Abs(pos.x) > 0.4f) {
+        if (pos.magnitude > 0.4f) {
+            if (Mathf.Abs(pos.x) > 0.5f) {
                 pos.x *= 3f;
             }
-            if (Mathf.Abs(pos.y) > 0.4f) {
+            if (Mathf.Abs(pos.y) > 0.5f) {
                 pos.y *= 3f;
             }
             cameraTransform.Translate(pos * Time.deltaTime * speed, Space.Self);

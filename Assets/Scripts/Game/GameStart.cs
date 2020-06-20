@@ -14,10 +14,14 @@ public class GameStart : MonoBehaviour
 
         Tower tower = Prefabs.Instantiate<Tower>();
         tower.transform.position = new Vector3(5f, 0f, 5f);
-    }
+        Tower tower2 = Prefabs.Instantiate<Tower>();
+        tower2.transform.position = new Vector3(7f, 0f, 7f);
 
-    void Update()
-    {
-        
+        GameObject goblin = Prefabs.Get<Goblin>();
+        for (int i = 0; i < 10; i += 1) {
+            GameObject newGoblin = Instantiate(goblin, tower.transform.position, Quaternion.identity);
+            Vector2 rnd = Random.insideUnitCircle.normalized * 5f;
+            newGoblin.transform.Translate(new Vector3(rnd.x, 0f, rnd.y), Space.World);
+        }
     }
 }
