@@ -8,9 +8,9 @@ public class EnemyNavigation : MonoBehaviour
 {
     [SerializeField]
     private Camera cam;
-    //[SerializeField]
     private NavMeshAgent agent;
-    // Start is called before the first frame update
+    private Vector3 target;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -21,7 +21,7 @@ public class EnemyNavigation : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetMouseButtonDown(0))
+        /*if (Input.GetMouseButtonDown(0))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -30,7 +30,15 @@ public class EnemyNavigation : MonoBehaviour
             {
                 agent.SetDestination(hit.point);
             }
-        }
 
+        }*/
+
+        agent.SetDestination(target);
+
+    }
+
+    public void SetTarget(Vector3 target)
+    {
+        this.target = target;
     }
 }

@@ -22,9 +22,11 @@ public class EnemySpawner : MonoBehaviour
     private float waitingStarted = 0;
     private float lastSpawned = 0;
 
-    // Start is called before the first frame update
+    private Vector3 baseTowerPosition;
+
     void Start()
     {
+        baseTowerPosition = GameObject.FindGameObjectsWithTag("BaseTower").First().transform.position;
     }
 
     private void FixedUpdate()
@@ -43,7 +45,14 @@ public class EnemySpawner : MonoBehaviour
         {
             if (Time.fixedTime - lastSpawned > currentBatch.spawnTime)
             {
-                pool.ActivateObject(spawnPoint.position);
+                GameObject enemy = pool.ActivateObject(spawnPoint.position);
+                EnemyNavigation nav = enemy.GetComponent<EnemyNavigation>();
+
+                if(nav != null)
+                {
+                    nav.SetTarget(baseTowerPosition);
+                }
+
                 lastSpawned = Time.fixedTime;
                 enemiesSpawned++;
             }
