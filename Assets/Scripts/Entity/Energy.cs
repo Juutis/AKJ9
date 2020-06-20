@@ -10,9 +10,13 @@ public class Energy : Targetable
 
     private void InitializeLine() {
         line = Prefabs.Instantiate<LineVisualizer>();
-        line.Initialize();
+        line.Initialize(HasAnimated);
         line.transform.parent = transform;
         line.SetGradient(Configs.main.UIStyle.ActiveConnectionGradient);
+    }
+
+    public void HasAnimated() {
+        currentTower.Connect(this);
     }
 
     public void Connect(Tower tower)
@@ -29,6 +33,5 @@ public class Energy : Targetable
         line.SetEndPoint(tower.transform.position);
         line.Show();
         currentTower = tower;
-        tower.Connect(this);
     }
 }
