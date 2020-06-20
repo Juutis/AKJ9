@@ -16,6 +16,8 @@ public class Tower : Targetable
     private Goblin currentTarget;
     private HoverIndicator distanceIndicator;
 
+    private TowerMesh towerMesh;
+
     private void Start()
     {
         distanceIndicator = Prefabs.Instantiate<HoverIndicator>();
@@ -23,6 +25,7 @@ public class Tower : Targetable
         distanceIndicator.Initialize();
         distanceIndicator.SetColorTint(Color.cyan);
         distanceIndicator.SetSize(minDistance);
+        towerMesh = GetComponentInChildren<TowerMesh>();
         firingTimer = firingInterval + 1f;
     }
 
@@ -31,10 +34,12 @@ public class Tower : Targetable
         currentEnergy = energy;
         Debug.Log("<color=green><b>Connected:</b></color> [{0}] <b>=></b> [{1}]".Format(this, energy));
         distanceIndicator.Show(transform.position);
+        towerMesh.Activate();
     }
 
     public void Disconnect(Energy energy)
     {
+        towerMesh.Deactivate();
         currentEnergy = null;
         distanceIndicator.Hide();
         Debug.Log("<color=red><b>Disconnected:</b></color> [{0}] <b>=></b> [{1}]".Format(this, energy));

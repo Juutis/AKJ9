@@ -20,7 +20,6 @@ public class TowerMesh : MonoBehaviour
     void Start()
     {
         topOriginalPos = TowerTop.position;
-        Activate();
     }
 
     // Update is called once per frame
