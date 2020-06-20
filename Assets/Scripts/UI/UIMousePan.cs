@@ -7,13 +7,11 @@ public class UIMousePan : MonoBehaviour
     private Transform cameraTransform;
 
     private float speed = 15f;
+    private float scrollSpeed = 30f;
+    private float scrollMin = 5f;
+    private float scrollMax = 11f;
 
-    private float scrollSpeed = 25f;
-    private float scrollMin = 6f;
-    private float scrollMax = 10f;
-    private Vector3 curVel;
-    private float curScrollVel;
-    Rect screenRect = new Rect(0,0, Screen.width, Screen.height);
+    private float border = 20f;
 
     void Start() {
         cameraTransform = Camera.main.transform;
@@ -21,16 +19,24 @@ public class UIMousePan : MonoBehaviour
 
     void Update()
     {
-        Vector2 mous = Input.mousePosition - new Vector3(Screen.width / 2, Screen.height / 2, 0f);
-        Vector3 pos = Camera.main.ScreenToViewportPoint(mous);
-        if (pos.magnitude > 0.4f) {
-            if (Mathf.Abs(pos.x) > 0.5f) {
-                pos.x *= 3f;
+        Vector2 dir = Vector2.zero;
+        Vector2 mous = Input.mousePosition;
+        if (mous.x > Screen.width / 2) {
+            if (mous.x > Screen.width || Mathf.Abs(Screen.width - mous.x) <= border) {
+                dir.x = 1f;
             }
-            if (Mathf.Abs(pos.y) > 0.5f) {
-                pos.y *= 3f;
+        } else if (mous.x <= border) {
+            dir.x = -1f;
+        }
+        if (mous.y > Screen.height / 2) {
+            if (mous.y > Screen.height || Mathf.Abs(Screen.height - mous.y) <= border) {
+                dir.y = 1f;
             }
-            cameraTransform.Translate(pos * Time.deltaTime * speed, Space.Self);
+        } else if (mous.y <= border) {
+            dir.y = -1f;
+        }
+        if (dir.magnitude > 0.1f) {
+            cameraTransform.Translate(dir * Time.deltaTime * speed, Space.Self);
         }
         if (Mathf.Abs(Input.mouseScrollDelta.y) > 0.02f) {
             Camera.main.orthographicSize = Mathf.Clamp(

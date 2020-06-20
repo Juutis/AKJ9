@@ -17,6 +17,7 @@ public class Tower : Targetable
     private HoverIndicator distanceIndicator;
 
     private TowerMesh towerMesh;
+    private Squiggle squiggle;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class Tower : Targetable
         distanceIndicator.SetSize(minDistance);
         towerMesh = GetComponentInChildren<TowerMesh>();
         firingTimer = firingInterval + 1f;
+        squiggle = Prefabs.Instantiate<Squiggle>();
     }
 
     public void Connect(Energy energy)
@@ -35,6 +37,7 @@ public class Tower : Targetable
         Debug.Log("<color=green><b>Connected:</b></color> [{0}] <b>=></b> [{1}]".Format(this, energy));
         distanceIndicator.Show(transform.position);
         towerMesh.Activate();
+        squiggle.Initialize(energy.transform.position, transform.position);
     }
 
     public void Disconnect(Energy energy)
@@ -42,6 +45,7 @@ public class Tower : Targetable
         towerMesh.Deactivate();
         currentEnergy = null;
         distanceIndicator.Hide();
+        squiggle.Hide();
         Debug.Log("<color=red><b>Disconnected:</b></color> [{0}] <b>=></b> [{1}]".Format(this, energy));
     }
 
