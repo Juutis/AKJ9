@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIMouse : MonoBehaviour
+public class UITargetMouse : MonoBehaviour
 {
     private LayerMask targetableLayer;
     private LayerMask groundLayer;
@@ -107,27 +107,5 @@ public class UIMouse : MonoBehaviour
         {
             HandleHoveringConnectables();
         }
-        /*   bool mouseHitTargetable = Tools.MouseCast(out hit, targetableLayer);
-           if (mouseHitTargetable)
-           {
-               Vector3 targetablePos = hit.collider.transform.position;
-               indicator.ShowAt(targetablePos);
-               if (currentConnectionSource != null)
-               {
-                   lineFollow.SetEnd(targetablePos);
-               }
-           }
-           else
-           {
-               indicator.Hide();
-               if (currentConnectionSource != null)
-               {
-                   bool mouseHitGround = Tools.MouseCast(out hit, groundLayer);
-                   if (mouseHitGround)
-                   {
-                       lineFollow.SetEnd(hit.point);
-                   }
-               }
-           }*/
     }
 }
