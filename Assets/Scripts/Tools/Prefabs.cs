@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using CustomExtensions;
 
 public class Prefabs: MonoBehaviour
 {
@@ -13,7 +12,6 @@ public class Prefabs: MonoBehaviour
     }
 
     public static GameObject Get<T>() {
-        Debug.Log(typeof(T).Name);
         return GetPrefab(typeof(T).Name);
     }
 
