@@ -82,14 +82,21 @@ public class Tower : Targetable
 
     private Goblin GetNextTarget()
     {
-        GameObject goblin = GameObject
-            .FindGameObjectsWithTag("Goblin")
-            .Where(gameObject => TargetDistance(gameObject) <= minDistance)
-            .OrderBy(gameObject => TargetDistance(gameObject))
-            .FirstOrDefault();
-        if (goblin != null)
+        GameObject nearest = null;
+        float nearestDist = float.MaxValue;
+        foreach (var candidate in GameObject.FindGameObjectsWithTag("Goblin"))
         {
-            return goblin.GetComponent<Goblin>();
+            var distance = TargetDistance(candidate);
+            if (distance < nearestDist)
+            {
+                nearestDist = distance;
+                nearest = candidate;
+            }
+        }
+
+        if (nearest != null && nearestDist < minDistance)
+        {
+            return nearest.GetComponent<Goblin>();
         }
         return null;
     }
