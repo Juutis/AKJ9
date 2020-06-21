@@ -9,7 +9,7 @@ public class EnemyNavigation : MonoBehaviour
     [SerializeField]
     private Camera cam;
     private NavMeshAgent agent;
-    private Vector3 target;
+    private BaseTower castle;
 
     void Start()
     {
@@ -18,7 +18,7 @@ public class EnemyNavigation : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
         /*if (Input.GetMouseButtonDown(0))
@@ -33,12 +33,18 @@ public class EnemyNavigation : MonoBehaviour
 
         }*/
 
-        agent.SetDestination(target);
+        agent.SetDestination(castle.transform.position);
 
+        if(Vector3.Distance(transform.position, castle.transform.position) < 1.5f)
+        {
+            Debug.Log("I hit you!");
+            castle.TakeDamage(1);
+            Destroy(gameObject);
+        }
     }
 
-    public void SetTarget(Vector3 target)
+    public void SetTarget(BaseTower target)
     {
-        this.target = target;
+        this.castle = target;
     }
 }

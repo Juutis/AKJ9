@@ -9,6 +9,13 @@ public class Energy : Targetable
     private LineVisualizer line;
 
     private Squiggle squiggle;
+    private EnergyType energyType;
+    public EnergyType EnergyType { get { return energyType; } }
+
+    private void Start()
+    {
+        energyType = GetComponent<EnergyType>();
+    }
 
     private void InitializeLine() {
         squiggle = Prefabs.Instantiate<Squiggle>();

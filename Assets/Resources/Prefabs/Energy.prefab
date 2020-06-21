@@ -118,6 +118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2650071053359553775}
   - component: {fileID: 1445009343875427529}
+  - component: {fileID: 5404658862542437242}
   m_Layer: 0
   m_Name: Energy
   m_TagString: Untagged
@@ -153,6 +154,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc13a8034a52b2f4eb318605f1382540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5404658862542437242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2650071053359553772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fec16357dbcf57f41ad6938c2b27aa05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
 --- !u!1 &4341508663235757674
 GameObject:
   m_ObjectHideFlags: 0

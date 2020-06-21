@@ -22,11 +22,11 @@ public class EnemySpawner : MonoBehaviour
     private float waitingStarted = 0;
     private float lastSpawned = 0;
 
-    private Vector3 baseTowerPosition;
+    private BaseTower baseTower;
 
     void Start()
     {
-        baseTowerPosition = GameObject.FindGameObjectsWithTag("BaseTower").First().transform.position;
+        baseTower = GameObject.FindGameObjectsWithTag("BaseTower").First().GetComponent<BaseTower>();
     }
 
     private void FixedUpdate()
@@ -50,7 +50,7 @@ public class EnemySpawner : MonoBehaviour
 
                 if(nav != null)
                 {
-                    nav.SetTarget(baseTowerPosition);
+                    nav.SetTarget(baseTower);
                 }
 
                 lastSpawned = Time.fixedTime;
