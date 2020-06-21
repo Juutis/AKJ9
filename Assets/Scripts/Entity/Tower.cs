@@ -5,6 +5,9 @@ using System.Linq;
 
 public class Tower : Targetable
 {
+    [SerializeField]
+    private MeshRenderer towerTopRenderer;
+
     private float minDistance = 5f;
     private float firingInterval = 1f;
 
@@ -39,7 +42,11 @@ public class Tower : Targetable
         Debug.Log("<color=green><b>Connected:</b></color> [{0}] <b>=></b> [{1}]".Format(this, energy));
         distanceIndicator.Show(transform.position);
         towerMesh.Activate();
-
+        EnergyTypes type = energy.EnergyType.Type;
+        Material[] materials = towerTopRenderer.materials;
+        materials[1] = Configs.main.EnergyTypeConfigs[type].CrystalMaterial;
+        towerTopRenderer.sharedMaterials = materials;
+        towerTopRenderer.materials = materials;
     }
 
     public void Disconnect(Energy energy)
