@@ -19,9 +19,9 @@ public class Tower : Targetable
 
     private float firingTimer = 0f;
 
-    private Energy currentEnergy;
+    private List<Energy> currentEnergies = new List<Energy>();
 
-    private bool Connected { get { return currentEnergy != null; } }
+    private bool Connected { get { return currentEnergies.Count > 0; } }
     private Goblin currentTarget;
     private HoverIndicator distanceIndicator;
 
@@ -33,6 +33,7 @@ public class Tower : Targetable
     private ParticleSystemRenderer bottomEffect;
 
     private Material origMaterial;
+
 
 
     private void Start()
@@ -83,46 +84,52 @@ public class Tower : Targetable
 
     public void Connect(Energy energy)
     {
-        currentEnergy = energy;
-        Debug.Log("<color=green><b>Connected:</b></color> [{0}] <b>=></b> [{1}]".Format(this, energy));
-        distanceIndicator.Show(transform.position);
-        towerMesh.Activate();
-
-        EnergyTypes type = energy.EnergyType.Type;
-        config = Configs.main.EnergyTypeConfigs[type];
-
-        Material[] materials = towerTopRenderer.materials;
-        materials[1] = config.CrystalMaterial;
-        towerTopRenderer.sharedMaterials = materials;
-        towerTopRenderer.materials = materials;
-
-        materials = towerBottomRenderer.materials;
-        materials[1] = config.CrystalMaterial;
-        towerBottomRenderer.sharedMaterials = materials;
-        towerBottomRenderer.materials = materials;
-
-        var main = topEffect.main;
-        main.startColor = config.EffectColor;
-
-        bottomEffect.trailMaterial = config.CrystalMaterial;
-
-        topLight.color = config.EffectColor;
-
-        topEffect.Play();
-        topLight.enabled = true;
+        currentEnergies.Add(energy);
+        UpdateEnergies();
     }
 
     public void Disconnect(Energy energy)
     {
-        // TODO: set default material?
-        towerMesh.Deactivate();
-        currentEnergy = null;
-        distanceIndicator.Hide();
-        topEffect.Stop();
-        topLight.enabled = false;
+        currentEnergies.Remove(energy);
+        UpdateEnergies();
+    }
 
-        Debug.Log("<color=red><b>Disconnected:</b></color> [{0}] <b>=></b> [{1}]".Format(this, energy));
-        Reset();
+    private void UpdateEnergies()
+    {
+        if (!Connected)
+        {
+            Reset();
+        }
+        else
+        {
+            // TODO: Figure out combo energy
+            EnergyTypes type = currentEnergies[0].EnergyType.Type;
+
+            distanceIndicator.Show(transform.position);
+            towerMesh.Activate();
+
+            config = Configs.main.EnergyTypeConfigs[type];
+
+            Material[] materials = towerTopRenderer.materials;
+            materials[1] = config.CrystalMaterial;
+            towerTopRenderer.sharedMaterials = materials;
+            towerTopRenderer.materials = materials;
+
+            materials = towerBottomRenderer.materials;
+            materials[1] = config.CrystalMaterial;
+            towerBottomRenderer.sharedMaterials = materials;
+            towerBottomRenderer.materials = materials;
+
+            var main = topEffect.main;
+            main.startColor = config.EffectColor;
+
+            bottomEffect.trailMaterial = config.CrystalMaterial;
+
+            topLight.color = config.EffectColor;
+
+            topEffect.Play();
+            topLight.enabled = true;
+        }
     }
 
     private void Reset()
@@ -131,6 +138,11 @@ public class Tower : Targetable
         materials[1] = origMaterial;
         towerTopRenderer.sharedMaterials = materials;
         towerTopRenderer.materials = materials;
+
+        towerMesh.Deactivate();
+        distanceIndicator.Hide();
+        topEffect.Stop();
+        topLight.enabled = false;
     }
 
     private float TargetDistance(GameObject target)
