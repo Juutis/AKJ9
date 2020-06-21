@@ -23,3 +23,4 @@ MonoBehaviour:
   bounceDistance: 0
   freezeTime: 0
   freezeMultiplier: 0
+  effectColor: {r: 0.9528302, g: 0, b: 0, a: 1}

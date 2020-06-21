@@ -44,4 +44,7 @@ public class EnergyTypeConfig : ScriptableObject
     [SerializeField]
     private float freezeMultiplier;
     public float FreezeMultiplier { get { return freezeMultiplier; } }
+
+    private Color effectColor;
+    public Color EffectColor { get { return effectColor; } }
 }

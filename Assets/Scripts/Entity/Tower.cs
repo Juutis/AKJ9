@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -7,7 +7,12 @@ public class Tower : Targetable
 {
     //[SerializeField]
     private MeshRenderer towerTopRenderer;
+    private MeshRenderer towerBottomRenderer;
     private readonly string towerTopName = "tower2_top";
+    private readonly string towerBottomName = "tower2_base";
+    private readonly string topLightName = "Crystal Light";
+    private readonly string topEffectName = "TopEnergy";
+    private readonly string bottomEffectName = "BottomEnergy";
 
     private float minDistance = 5f;
     private float firingInterval = 1f;
@@ -23,6 +28,12 @@ public class Tower : Targetable
     private TowerMesh towerMesh;
     private EnergyTypeConfig config;
 
+    private Light topLight;
+    private ParticleSystem topEffect;
+    private ParticleSystemRenderer bottomEffect;
+
+    private Material origMaterial;
+
 
     private void Start()
     {
@@ -36,6 +47,38 @@ public class Tower : Targetable
         towerMesh = GetComponentInChildren<TowerMesh>();
         firingTimer = firingInterval + 1f;
 
+        setReferences(transform);
+
+        origMaterial = towerTopRenderer.materials[1];
+    }
+
+    private void setReferences(Transform trans)
+    {
+        foreach (Transform t in trans)
+        {
+            if (t.name == towerTopName)
+            {
+                towerTopRenderer = t.GetComponent<MeshRenderer>();
+            }
+            if (t.name == towerBottomName)
+            {
+                towerBottomRenderer = t.GetComponent<MeshRenderer>();
+            }
+            if (t.name == topLightName)
+            {
+                topLight = t.GetComponent<Light>();
+            }
+            if (t.name == topEffectName)
+            {
+                topEffect = t.GetComponent<ParticleSystem>();
+            }
+            if (t.name == bottomEffectName)
+            {
+                bottomEffect = t.GetComponent<ParticleSystemRenderer>();
+            }
+
+            setReferences(t);
+        }
     }
 
     public void Connect(Energy energy)
@@ -45,17 +88,6 @@ public class Tower : Targetable
         distanceIndicator.Show(transform.position);
         towerMesh.Activate();
 
-        foreach (Transform nested in transform)
-        {
-            foreach (Transform t in nested)
-            {
-                if (t.name == towerTopName)
-                {
-                    towerTopRenderer = t.GetComponent<MeshRenderer>();
-                }
-            }
-        }
-
         EnergyTypes type = energy.EnergyType.Type;
         config = Configs.main.EnergyTypeConfigs[type];
 
@@ -63,6 +95,21 @@ public class Tower : Targetable
         materials[1] = config.CrystalMaterial;
         towerTopRenderer.sharedMaterials = materials;
         towerTopRenderer.materials = materials;
+
+        materials = towerBottomRenderer.materials;
+        materials[1] = config.CrystalMaterial;
+        towerBottomRenderer.sharedMaterials = materials;
+        towerBottomRenderer.materials = materials;
+
+        var main = topEffect.main;
+        main.startColor = config.EffectColor;
+
+        bottomEffect.trailMaterial = config.CrystalMaterial;
+
+        topLight.color = config.EffectColor;
+
+        topEffect.Play();
+        topLight.enabled = true;
     }
 
     public void Disconnect(Energy energy)
@@ -71,8 +118,19 @@ public class Tower : Targetable
         towerMesh.Deactivate();
         currentEnergy = null;
         distanceIndicator.Hide();
+        topEffect.Stop();
+        topLight.enabled = false;
 
         Debug.Log("<color=red><b>Disconnected:</b></color> [{0}] <b>=></b> [{1}]".Format(this, energy));
+        Reset();
+    }
+
+    private void Reset()
+    {
+        Material[] materials = towerTopRenderer.materials;
+        materials[1] = origMaterial;
+        towerTopRenderer.sharedMaterials = materials;
+        towerTopRenderer.materials = materials;
     }
 
     private float TargetDistance(GameObject target)
