@@ -167,9 +167,9 @@ ParticleSystem:
         m_RotationOrder: 4
     startSpeed:
       serializedVersion: 2
-      minMaxState: 3
-      scalar: 0.1
-      minScalar: 0.1
+      minMaxState: 0
+      scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -606,7 +606,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -0.013
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1321,9 +1321,9 @@ ParticleSystem:
         ctime7: 0
         atime0: 0
         atime1: 24479
-        atime2: 32189
+        atime2: 33539
         atime3: 65535
-        atime4: 0
+        atime4: 65535
         atime5: 0
         atime6: 0
         atime7: 0
