@@ -57,7 +57,9 @@ public class EnergyTypeConfig : ScriptableObject
 
     public EnergyTypeConfig GetCombo(EnergyTypes type)
     {
-        return combos.Where(x => x.type == type).FirstOrDefault().config;
+        EnergyTypePair pair = combos.Where(x => x.type == type).FirstOrDefault();
+        if (pair == null) return null;
+        return pair.config;
     }
 }
 
