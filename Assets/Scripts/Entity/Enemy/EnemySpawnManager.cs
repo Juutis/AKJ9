@@ -34,6 +34,7 @@ public class EnemySpawnManager : MonoBehaviour
     {
         if (phase == SpawnPhase.Spawning)
         {
+            //Debug.Log("Starting to spawn " + Time.fixedTime);
             if (!spawningOnGoing)
             {
                 for (int i = 0; i < 4; i++)

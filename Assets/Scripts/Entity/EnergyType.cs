@@ -11,6 +11,7 @@ public class EnergyType : MonoBehaviour
     private MeshRenderer crystalRenderer;
     private Material crystalMaterial;
     private readonly string crystalMeshName = "Cube.002";
+    private Light light;
 
     // Start is called before the first frame update
     void Start()
@@ -27,10 +28,16 @@ public class EnergyType : MonoBehaviour
                     }
                 }
             }
+
+            if (nested.name == "Point Light")
+            {
+                light = nested.GetComponent<Light>();
+            }
         }
         EnergyTypeConfig conf = Configs.main.EnergyTypeConfigs[type];
         crystalMaterial = conf.CrystalMaterial;
         crystalRenderer.material = crystalMaterial;
+        light.color = conf.EffectColor;
     }
 
     // Update is called once per frame
@@ -46,5 +53,12 @@ public enum EnergyTypes
     Fire,
     Ice,
     Boulder,
-    Lightning
+    Lightning,
+
+    FireIce,
+    FireLightning,
+    FireMagic,
+    IceLightning,
+    IceMagic,
+    LightningMagic
 }
