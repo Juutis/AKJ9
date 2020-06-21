@@ -29,19 +29,10 @@ public class MinimapCamera : MonoBehaviour
     {
         Vector3 vp = minimapCamera.WorldToViewportPoint(Camera.main.transform.position);
         miniMapControl.sizeDelta = defaultSize * (Camera.main.orthographicSize / 15);
-        miniMapControl.anchoredPosition = new Vector2(
+        Vector2 anchorPos = new Vector2(
             (vp.x * 200) - miniMapControl.sizeDelta.x / 2,
             (vp.y * 200) - miniMapControl.sizeDelta.y / 2
         );
-        //        Debug.Log(Camera.main.transform.position);
+        miniMapControl.anchoredPosition = anchorPos;
     }
-
-    public Vector2 MiniMapPositionToCamera()
-    {
-        return Camera.main.ViewportToWorldPoint(new Vector2(
-            (miniMapControl.anchoredPosition.x + miniMapControl.sizeDelta.x / 2) / 200,
-            (miniMapControl.anchoredPosition.y + miniMapControl.sizeDelta.y / 2) / 200
-        ));
-    }
-
 }
