@@ -18,7 +18,7 @@ MonoBehaviour:
     - waitTime: 3
       spawnTime: 1
       enemyCount: 2
-      enemyType: 0
+      enemyType: 1
     - waitTime: 3
       spawnTime: 2
       enemyCount: 2

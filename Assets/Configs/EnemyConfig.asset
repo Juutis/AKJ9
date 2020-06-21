@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - type: 0
-    prefab: {fileID: 7283142958793387812, guid: 7a63dbc76e1489841a5a04b44e1969c8,
+    prefab: {fileID: 8372095341262088627, guid: bc81d3d1c4db50b4e80b9aead1e65cfb,
       type: 3}
   - type: 1
-    prefab: {fileID: 7283142958793387812, guid: 7a63dbc76e1489841a5a04b44e1969c8,
+    prefab: {fileID: 5165195129775582213, guid: 4230677b2e6a26846891e56109660e03,
       type: 3}
   - type: 2
     prefab: {fileID: 7283142958793387812, guid: 7a63dbc76e1489841a5a04b44e1969c8,
