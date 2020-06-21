@@ -17,4 +17,9 @@ public class EnergyTypeConfig : ScriptableObject
     private GameObject projectile;
     public GameObject Projectile { get { return projectile; } }
 
+    [SerializeField]
+    private Color effectColor;
+    public Color EffectColor { get { return effectColor; } }
+
+
 }
