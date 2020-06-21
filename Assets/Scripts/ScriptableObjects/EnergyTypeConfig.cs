@@ -13,4 +13,8 @@ public class EnergyTypeConfig : ScriptableObject
     private Material crystalMaterial;
     public Material CrystalMaterial { get { return crystalMaterial; } }
 
+    [SerializeField]
+    private GameObject projectile;
+    public GameObject Projectile { get { return projectile; } }
+
 }

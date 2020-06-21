@@ -20,6 +20,7 @@ public class Tower : Targetable
     private HoverIndicator distanceIndicator;
 
     private TowerMesh towerMesh;
+    private EnergyTypeConfig config;
 
 
     private void Start()
@@ -42,9 +43,12 @@ public class Tower : Targetable
         Debug.Log("<color=green><b>Connected:</b></color> [{0}] <b>=></b> [{1}]".Format(this, energy));
         distanceIndicator.Show(transform.position);
         towerMesh.Activate();
+
         EnergyTypes type = energy.EnergyType.Type;
+        config = Configs.main.EnergyTypeConfigs[type];
+
         Material[] materials = towerTopRenderer.materials;
-        materials[1] = Configs.main.EnergyTypeConfigs[type].CrystalMaterial;
+        materials[1] = config.CrystalMaterial;
         towerTopRenderer.sharedMaterials = materials;
         towerTopRenderer.materials = materials;
     }
@@ -79,7 +83,9 @@ public class Tower : Targetable
 
     private void FireAtCurrentTarget()
     {
-        TowerProjectile projectile = Prefabs.Instantiate<TowerProjectile>();
+        if (!config) return; //config should exist if connection has been made
+
+        TowerProjectile projectile = ObjectPooler.GetPool(config.Projectile).ActivateObject(transform.position).GetComponent<TowerProjectile>();
         Vector3 pos = transform.position;
         pos.y = 1.5f;
         projectile.transform.position = pos;
