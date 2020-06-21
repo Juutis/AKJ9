@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "EnergyTypeConfig", menuName = "New EnergyTypeConfig")]
@@ -45,6 +47,18 @@ public class EnergyTypeConfig : ScriptableObject
     private float freezeMultiplier;
     public float FreezeMultiplier { get { return freezeMultiplier; } }
 
+    [SerializeField]
     private Color effectColor;
     public Color EffectColor { get { return effectColor; } }
+
+    [SerializeField]
+    private List<EnergyTypePair> combos;
+    public List<EnergyTypePair> Combos { get { return combos; } }
+}
+
+[Serializable]
+public class EnergyTypePair
+{
+    public EnergyTypes type;
+    public EnergyTypeConfig config;
 }

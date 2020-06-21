@@ -16,11 +16,18 @@ MonoBehaviour:
   crystalMaterial: {fileID: 2100000, guid: 7103e39f393459949859311e55f22d2b, type: 2}
   projectile: {fileID: 2488996861010169074, guid: 12d3b6f184732b143b17c9c66c4d30a8,
     type: 3}
-  damage: 3
+  damage: 2
   speed: 50
   explodeRange: 0
   bounces: 0
   bounceDistance: 0
   freezeTime: 0
   freezeMultiplier: 0
-  effectColor: {r: 1, g: 0, b: 0.9880781, a: 1}
+  effectColor: {r: 0, g: 0, b: 0, a: 0}
+  combos:
+  - type: 1
+    config: {fileID: 11400000, guid: bf36dfd60b3a67240bc4c9fd432f46a9, type: 2}
+  - type: 2
+    config: {fileID: 11400000, guid: cc5dba11acdf62c4580bbddd43bdec39, type: 2}
+  - type: 4
+    config: {fileID: 11400000, guid: 63699bb12e7c3c9429fbceba8c4ecb38, type: 2}

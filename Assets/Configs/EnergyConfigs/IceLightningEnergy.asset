@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c2234758e5ca994bb785a95dcac31a9, type: 3}
-  m_Name: IceEnergy
+  m_Name: IceLightningEnergy
   m_EditorClassIdentifier: 
   type: 2
   crystalMaterial: {fileID: 2100000, guid: 62315975624051b4186d796cc00c81cb, type: 2}
@@ -19,15 +19,9 @@ MonoBehaviour:
   damage: 1
   speed: 50
   explodeRange: 0
-  bounces: 0
-  bounceDistance: 0
-  freezeTime: 5
-  freezeMultiplier: 0.66
-  effectColor: {r: 0, g: 0, b: 0, a: 0}
-  combos:
-  - type: 0
-    config: {fileID: 11400000, guid: cc5dba11acdf62c4580bbddd43bdec39, type: 2}
-  - type: 1
-    config: {fileID: 11400000, guid: e0355ad4fb0a52b4cb943a2414b68cfe, type: 2}
-  - type: 4
-    config: {fileID: 11400000, guid: d5a83ff495674234990a7b7578f720ce, type: 2}
+  bounces: 3
+  bounceDistance: 2
+  freezeTime: 3
+  freezeMultiplier: 0.75
+  effectColor: {r: 0, g: 0.4195919, b: 1, a: 1}
+  combos: []
