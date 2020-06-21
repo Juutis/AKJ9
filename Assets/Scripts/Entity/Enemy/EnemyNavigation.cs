@@ -17,6 +17,11 @@ public class EnemyNavigation : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(castle == null)
+        {
+            //Destroy(gameObject);
+            return;
+        }
 
         agent.SetDestination(castle.transform.position);
 

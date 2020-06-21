@@ -5,8 +5,9 @@ using System.Linq;
 
 public class Tower : Targetable
 {
-    [SerializeField]
+    //[SerializeField]
     private MeshRenderer towerTopRenderer;
+    private readonly string towerTopName = "tower2_top";
 
     private float minDistance = 5f;
     private float firingInterval = 1f;
@@ -44,6 +45,17 @@ public class Tower : Targetable
         distanceIndicator.Show(transform.position);
         towerMesh.Activate();
 
+        foreach (Transform nested in transform)
+        {
+            foreach (Transform t in nested)
+            {
+                if (t.name == towerTopName)
+                {
+                    towerTopRenderer = t.GetComponent<MeshRenderer>();
+                }
+            }
+        }
+
         EnergyTypes type = energy.EnergyType.Type;
         config = Configs.main.EnergyTypeConfigs[type];
 
@@ -55,6 +67,7 @@ public class Tower : Targetable
 
     public void Disconnect(Energy energy)
     {
+        // TODO: set default material?
         towerMesh.Deactivate();
         currentEnergy = null;
         distanceIndicator.Hide();
