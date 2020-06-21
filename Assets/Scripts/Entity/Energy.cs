@@ -8,7 +8,10 @@ public class Energy : Targetable
     public Tower CurrentTower { get { return currentTower; } }
     private LineVisualizer line;
 
+    private Squiggle squiggle;
+
     private void InitializeLine() {
+        squiggle = Prefabs.Instantiate<Squiggle>();
         line = Prefabs.Instantiate<LineVisualizer>();
         line.Initialize(HasAnimated);
         line.transform.parent = transform;
@@ -17,6 +20,7 @@ public class Energy : Targetable
 
     public void HasAnimated() {
         currentTower.Connect(this);
+        squiggle.Initialize(transform.position, currentTower.transform.position);
     }
 
     public void Connect(Tower tower)
@@ -29,6 +33,7 @@ public class Energy : Targetable
         {
             InitializeLine();
         }
+        
         line.SetStartPoint(this.transform.position);
         line.SetEndPoint(tower.transform.position);
         line.Show();

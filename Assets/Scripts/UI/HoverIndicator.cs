@@ -40,6 +40,11 @@ public class HoverIndicator : MonoBehaviour
         border.color = borderColor;
     }
 
+    public void SetColor(Color color) {
+        fill.color = color;
+        border.color = color;
+    }
+
     public void Hide() {
         fill.enabled = false;
         border.enabled = false;
