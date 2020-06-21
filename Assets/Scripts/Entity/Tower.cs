@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
 public class Tower : Targetable
 {
@@ -18,10 +17,11 @@ public class Tower : Targetable
     private float firingInterval = 1f;
 
     private float firingTimer = 0f;
-
+    
     private List<Energy> currentEnergies = new List<Energy>();
 
     private bool Connected { get { return currentEnergies.Count > 0; } }
+
     private Goblin currentTarget;
     private HoverIndicator distanceIndicator;
 
@@ -33,9 +33,7 @@ public class Tower : Targetable
     private ParticleSystemRenderer bottomEffect;
 
     private Material origMaterial;
-
-
-
+    
     private void Start()
     {
         distanceIndicator = Prefabs.Instantiate<HoverIndicator>();
@@ -138,7 +136,6 @@ public class Tower : Targetable
         materials[1] = origMaterial;
         towerTopRenderer.sharedMaterials = materials;
         towerTopRenderer.materials = materials;
-
         towerMesh.Deactivate();
         distanceIndicator.Hide();
         topEffect.Stop();
@@ -179,6 +176,7 @@ public class Tower : Targetable
         Vector3 pos = transform.position;
         pos.y = 1.5f;
         projectile.transform.position = pos;
+        projectile.SetConfig(config);
         projectile.Launch(currentTarget);
     }
 

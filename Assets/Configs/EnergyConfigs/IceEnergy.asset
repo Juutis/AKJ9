@@ -16,4 +16,11 @@ MonoBehaviour:
   crystalMaterial: {fileID: 2100000, guid: 62315975624051b4186d796cc00c81cb, type: 2}
   projectile: {fileID: 2488996861010169074, guid: 031b8e237f0dcba449fd51c161e331bf,
     type: 3}
+  damage: 1
+  speed: 50
+  explodeRange: 0
+  bounces: 0
+  bounceDistance: 0
+  freezeTime: 5
+  freezeMultiplier: 0.66
   effectColor: {r: 0, g: 0.4195919, b: 1, a: 1}
