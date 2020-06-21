@@ -5,8 +5,9 @@ using System.Linq;
 
 public class Tower : Targetable
 {
-    [SerializeField]
+    //[SerializeField]
     private MeshRenderer towerTopRenderer;
+    private readonly string towerTopName = "tower2_top";
 
     private float minDistance = 5f;
     private float firingInterval = 1f;
@@ -44,6 +45,17 @@ public class Tower : Targetable
         distanceIndicator.Show(transform.position);
         towerMesh.Activate();
 
+        foreach (Transform nested in transform)
+        {
+            foreach (Transform t in nested)
+            {
+                if (t.name == towerTopName)
+                {
+                    towerTopRenderer = t.GetComponent<MeshRenderer>();
+                }
+            }
+        }
+
         EnergyTypes type = energy.EnergyType.Type;
         config = Configs.main.EnergyTypeConfigs[type];
 
@@ -55,6 +67,7 @@ public class Tower : Targetable
 
     public void Disconnect(Energy energy)
     {
+        // TODO: set default material?
         towerMesh.Deactivate();
         currentEnergy = null;
         distanceIndicator.Hide();
@@ -69,14 +82,21 @@ public class Tower : Targetable
 
     private Goblin GetNextTarget()
     {
-        GameObject goblin = GameObject
-            .FindGameObjectsWithTag("Goblin")
-            .OrderBy(gameObject => TargetDistance(gameObject))
-            .Where(gameObject => TargetDistance(gameObject) <= minDistance)
-            .FirstOrDefault();
-        if (goblin != null)
+        GameObject nearest = null;
+        float nearestDist = float.MaxValue;
+        foreach (var candidate in GameObject.FindGameObjectsWithTag("Goblin"))
         {
-            return goblin.GetComponent<Goblin>();
+            var distance = TargetDistance(candidate);
+            if (distance < nearestDist)
+            {
+                nearestDist = distance;
+                nearest = candidate;
+            }
+        }
+
+        if (nearest != null && nearestDist < minDistance)
+        {
+            return nearest.GetComponent<Goblin>();
         }
         return null;
     }

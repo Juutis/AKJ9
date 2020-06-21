@@ -55,7 +55,7 @@ public class WaveEditor : UnityEditor.Editor
                 SerializedProperty enemyType = element.FindPropertyRelative("enemyType");
 
                 EditorGUI.LabelField(new Rect(rect.x, rect.y, 100, EditorGUIUtility.singleLineHeight), "Batch " + index);
-                waitTime.floatValue = EditorGUI.FloatField(new Rect(rect.x + 50, rect.y, 40, EditorGUIUtility.singleLineHeight*2), waitTime.floatValue);
+                waitTime.floatValue = EditorGUI.FloatField(new Rect(rect.x + 50, rect.y, 40, EditorGUIUtility.singleLineHeight), waitTime.floatValue);
                 spawnTime.floatValue = EditorGUI.FloatField(new Rect(rect.x + 100, rect.y, 40, EditorGUIUtility.singleLineHeight), spawnTime.floatValue);
                 enemyCount.intValue = EditorGUI.IntField(new Rect(rect.x + 150, rect.y, 40, EditorGUIUtility.singleLineHeight), enemyCount.intValue);
                 enemyType.enumValueIndex = (int)(EnemyType)EditorGUI.EnumPopup(new Rect(rect.x + 200, rect.y, 100, EditorGUIUtility.singleLineHeight), (EnemyType)Enum.GetValues(typeof(EnemyType)).GetValue(enemyType.enumValueIndex));

@@ -6,32 +6,22 @@ using UnityEngine.AI;
 
 public class EnemyNavigation : MonoBehaviour
 {
-    [SerializeField]
-    private Camera cam;
     private NavMeshAgent agent;
     private BaseTower castle;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        cam = FindObjectsOfType<Camera>().First();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        /*if (Input.GetMouseButtonDown(0))
+        if(castle == null)
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                agent.SetDestination(hit.point);
-            }
-
-        }*/
+            //Destroy(gameObject);
+            return;
+        }
 
         agent.SetDestination(castle.transform.position);
 

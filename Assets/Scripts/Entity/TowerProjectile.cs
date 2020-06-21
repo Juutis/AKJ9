@@ -1,37 +1,115 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class TowerProjectile : MonoBehaviour
 {
+    [SerializeField]
+    private float Speed = 50f;
+
+    [SerializeField]
+    private int Bounces = 0;
+
+    [SerializeField]
+    private int BounceDistance = 0;
+
     private Goblin target;
-    private float duration = 0.5f;
     private float minDistance = 0.01f;
     private int damage = 1;
-    private float timer = 0f;
-    private Vector3 startPos;
+
+    bool damaged = false;
+
+    List<GameObject> targetsHit = new List<GameObject>();
+    private int bouncesLeft;
+
     public void Launch(Goblin targetGoblin)
     {
         target = targetGoblin;
-        startPos = transform.position;
+        damaged = false;
+        targetsHit = new List<GameObject>();
+        bouncesLeft = Bounces;
     }
 
     void Update()
     {
         if (target != null)
         {
-            timer += Time.deltaTime;
             Vector3 targetPos = target.transform.position;
             targetPos.y = 0.5f;
-            transform.position = Vector3.Lerp(startPos, targetPos, timer / duration);
-            if (Vector3.Distance(transform.position, targetPos) < minDistance) {
+
+            var targetDir = (targetPos - transform.position).normalized;
+            var targetDist = Vector3.Distance(transform.position, targetPos);
+
+            if (targetDist < Speed * Time.deltaTime)
+            {
+                transform.position = targetPos;
+            }
+            else
+            {
+                transform.position = transform.position + targetDir * Speed * Time.deltaTime;
+            }
+            
+            if (Vector3.Distance(transform.position, targetPos) < minDistance && !damaged) {
                 target.TakeDamage(damage);
-                Die();
+                targetsHit.Add(target.gameObject);
+
+                if (!TryBounce()) 
+                {
+                    Invoke("Die", 0.5f);
+                    damaged = true;
+                }
             }
         }
     }
 
+    private bool TryBounce()
+    {
+        if (bouncesLeft <= 0)
+        {
+            return false;
+        }
+        var newTarget = getNextBounceTarget();
+        if (newTarget != null)
+        {
+            target = newTarget;
+            bouncesLeft--;
+            return true;
+        }
+        return false;
+    }
+
     private void Die() {
         Destroy(gameObject);
+    }
+
+    private Goblin getNextBounceTarget()
+    {
+        GameObject nearest = null;
+        float nearestDist = float.MaxValue;
+        foreach (var candidate in GameObject.FindGameObjectsWithTag("Goblin"))
+        {
+            if (targetsHit.Contains(candidate))
+            {
+                continue;
+            }
+            var distance = TargetDistance(candidate);
+            if (distance < nearestDist)
+            {
+                nearestDist = distance;
+                nearest = candidate;
+            }
+        }
+
+        if (nearest != null && nearestDist < BounceDistance)
+        {
+            return nearest.GetComponent<Goblin>();
+        }
+        return null;
+    }
+
+    private float TargetDistance(GameObject target)
+    {
+        return Vector3.Distance(transform.position, target.transform.position);
     }
 }
