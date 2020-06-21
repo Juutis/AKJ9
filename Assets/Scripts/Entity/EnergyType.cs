@@ -5,10 +5,12 @@ using UnityEngine;
 public class EnergyType : MonoBehaviour
 {
     [SerializeField]
-    EnergyTypes type;
+    private EnergyTypes type;
+    public EnergyTypes Type { get { return type; } }
+
     [SerializeField]
-    MeshRenderer crystalRenderer;
-    Material crystalMaterial;
+    private MeshRenderer crystalRenderer;
+    private Material crystalMaterial;
 
     // Start is called before the first frame update
     void Start()
