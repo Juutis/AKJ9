@@ -84,8 +84,8 @@ public class Tower : Targetable
     {
         GameObject goblin = GameObject
             .FindGameObjectsWithTag("Goblin")
-            .OrderBy(gameObject => TargetDistance(gameObject))
             .Where(gameObject => TargetDistance(gameObject) <= minDistance)
+            .OrderBy(gameObject => TargetDistance(gameObject))
             .FirstOrDefault();
         if (goblin != null)
         {
