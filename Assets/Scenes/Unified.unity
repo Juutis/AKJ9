@@ -1543,59 +1543,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6172561792326211352, guid: e37c44b5128478948b24a3598a521b59,
-        type: 3}
-      propertyPath: poolConfigs.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6172561792326211352, guid: e37c44b5128478948b24a3598a521b59,
-        type: 3}
-      propertyPath: poolConfigs.Array.data[3].prefab
-      value: 
-      objectReference: {fileID: 2488996861010169074, guid: 42d1279c4f60b0b429123004d9ccd88d,
-        type: 3}
-    - target: {fileID: 6172561792326211352, guid: e37c44b5128478948b24a3598a521b59,
-        type: 3}
-      propertyPath: poolConfigs.Array.data[3].poolSize
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 6172561792326211352, guid: e37c44b5128478948b24a3598a521b59,
-        type: 3}
-      propertyPath: poolConfigs.Array.data[3].strictPoolSize
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6172561792326211352, guid: e37c44b5128478948b24a3598a521b59,
-        type: 3}
-      propertyPath: poolConfigs.Array.data[4].prefab
-      value: 
-      objectReference: {fileID: 2488996861010169074, guid: 031b8e237f0dcba449fd51c161e331bf,
-        type: 3}
-    - target: {fileID: 6172561792326211352, guid: e37c44b5128478948b24a3598a521b59,
-        type: 3}
-      propertyPath: poolConfigs.Array.data[4].poolSize
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 6172561792326211352, guid: e37c44b5128478948b24a3598a521b59,
-        type: 3}
-      propertyPath: poolConfigs.Array.data[4].strictPoolSize
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6172561792326211352, guid: e37c44b5128478948b24a3598a521b59,
-        type: 3}
-      propertyPath: poolConfigs.Array.data[5].prefab
-      value: 
-      objectReference: {fileID: 2488996861010169074, guid: 12d3b6f184732b143b17c9c66c4d30a8,
-        type: 3}
-    - target: {fileID: 6172561792326211352, guid: e37c44b5128478948b24a3598a521b59,
-        type: 3}
-      propertyPath: poolConfigs.Array.data[5].poolSize
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 6172561792326211352, guid: e37c44b5128478948b24a3598a521b59,
-        type: 3}
-      propertyPath: poolConfigs.Array.data[5].strictPoolSize
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6172561792326211430, guid: e37c44b5128478948b24a3598a521b59,
         type: 3}
       propertyPath: m_LocalPosition.x
