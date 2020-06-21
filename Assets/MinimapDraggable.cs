@@ -27,6 +27,8 @@ public class MinimapDraggable : MonoBehaviour, IPointerClickHandler, IPointerDow
         Vector2 dir = GetDir(prevClickPos);
         if (dir.magnitude > 0.01f && pointerDown) {
             cameraTransform.Translate(dir * 100, Space.Self);
+        } else {
+            pointerDown = false;
         }
     }
 
