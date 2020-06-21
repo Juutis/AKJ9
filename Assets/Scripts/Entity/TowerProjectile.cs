@@ -43,13 +43,38 @@ public class TowerProjectile : MonoBehaviour
             }
             
             if (Vector3.Distance(transform.position, targetPos) < minDistance && !damaged) {
-                target.TakeDamage(energyTypeConfig);
+
+                if (energyTypeConfig.ExplodeRange > 0) //projectile is aoe, find targets
+                {
+                    doAoEDamage();
+                }
+                else
+                {
+                    target.TakeDamage(energyTypeConfig);
+                }
+                
                 targetsHit.Add(target.gameObject);
 
                 if (!TryBounce()) 
                 {
                     Invoke("Die", 0.5f);
                     damaged = true;
+                }
+            }
+        }
+    }
+
+    private void doAoEDamage()
+    {
+        foreach (var candidate in GameObject.FindGameObjectsWithTag("Goblin"))
+        {
+            var distance = TargetDistance(candidate);
+            if (energyTypeConfig.ExplodeRange > distance)
+            {
+                Goblin newTarget = candidate.GetComponent<Goblin>();
+                if (newTarget != null)
+                {
+                    newTarget.TakeDamage(energyTypeConfig);
                 }
             }
         }
