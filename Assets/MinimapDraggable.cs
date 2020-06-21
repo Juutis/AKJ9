@@ -17,7 +17,7 @@ public class MinimapDraggable :
     private RectTransform miniMapControl;
     private Transform cameraTransform;
 
-    private float speed = 55f;
+    private float speed = 25f;
     private LayerMask mask;
 
     private Vector2 prevClickPos;
@@ -38,7 +38,6 @@ public class MinimapDraggable :
         Vector2 mouseDragDir = GetDir(GetMouseonMinimap(prevClickPos));
         if (mousePanDir.magnitude > 0.01f)
         {
-            //mousePanDir = GetDir(mousePanDir);
             cameraTransform.Translate(mousePanDir * Time.deltaTime * speed, Space.Self);
         }
         else

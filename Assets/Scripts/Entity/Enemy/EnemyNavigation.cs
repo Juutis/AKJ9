@@ -9,9 +9,12 @@ public class EnemyNavigation : MonoBehaviour
     private NavMeshAgent agent;
     private BaseTower castle;
 
+    private Goblin goblin;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        goblin = GetComponent<Goblin>();
     }
 
     // Update is called once per frame
@@ -27,6 +30,7 @@ public class EnemyNavigation : MonoBehaviour
 
         if(Vector3.Distance(transform.position, castle.transform.position) < 1.5f)
         {
+            goblin.KillHPBar();
             Debug.Log("I hit you!");
             castle.TakeDamage(1);
             Destroy(gameObject);

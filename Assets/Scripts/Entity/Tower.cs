@@ -30,7 +30,7 @@ public class Tower : Targetable
         distanceIndicator.transform.parent = transform;
         distanceIndicator.Initialize();
         Color color = Color.cyan;
-        color.a = 0.3f;
+        color.a = 0.1f;
         distanceIndicator.SetColor(color);
         distanceIndicator.SetSize(minDistance);
         towerMesh = GetComponentInChildren<TowerMesh>();

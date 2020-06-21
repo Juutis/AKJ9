@@ -5,10 +5,14 @@ using UnityEngine;
 public class BaseTower : MonoBehaviour
 {
     private int hp = 5;
-    // Start is called before the first frame update
+    private HitPointBar hitPointBar;
     void Start()
     {
-        
+        hitPointBar = WorldSpaceUI.main.GetHitPointBar(hp);
+        Vector3 hpBarPos = transform.position;
+        hpBarPos.y = 4f;
+        hitPointBar.SetSize(new Vector2(200, 20));
+        hitPointBar.UpdatePosition(hpBarPos);
     }
 
     // Update is called once per frame
@@ -17,6 +21,7 @@ public class BaseTower : MonoBehaviour
         if (hp <= 0)
         {
             Debug.Log("I die");
+            hitPointBar.Die();
             Destroy(gameObject);
         }
     }
@@ -24,5 +29,6 @@ public class BaseTower : MonoBehaviour
     public void TakeDamage(int dmg)
     {
         hp -= dmg;
+        hitPointBar.UpdateHp(hp);
     }
 }
