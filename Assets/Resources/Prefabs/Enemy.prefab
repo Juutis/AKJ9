@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7283142958793387995}
   - component: {fileID: 7283142958793387994}
   - component: {fileID: 7283142958793387813}
+  - component: {fileID: 4923829085005884403}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Goblin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,4 +84,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 882393f9113261e4ba2bf3161be31e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
+--- !u!114 &4923829085005884403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7283142958793387812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384e904377add3b4c864b115436eabc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
