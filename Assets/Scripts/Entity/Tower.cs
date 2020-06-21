@@ -100,13 +100,16 @@ public class Tower : Targetable
         }
         else
         {
-            // TODO: Figure out combo energy
             EnergyTypes type = currentEnergies[0].EnergyType.Type;
+            config = Configs.main.EnergyTypeConfigs[type];
+
+            if (currentEnergies.Count > 1)
+            {
+                config = config.GetCombo(currentEnergies[1].EnergyType.Type);
+            }
 
             distanceIndicator.Show(transform.position);
             towerMesh.Activate();
-
-            config = Configs.main.EnergyTypeConfigs[type];
 
             Material[] materials = towerTopRenderer.materials;
             materials[1] = config.CrystalMaterial;

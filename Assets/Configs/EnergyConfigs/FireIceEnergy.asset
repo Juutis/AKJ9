@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c2234758e5ca994bb785a95dcac31a9, type: 3}
   m_Name: FireIceEnergy
   m_EditorClassIdentifier: 
-  type: 1
-  crystalMaterial: {fileID: 2100000, guid: 6655623780c1f9a42a8d1d170d5bd5d5, type: 2}
+  type: 5
+  crystalMaterial: {fileID: 2100000, guid: 433856258bf4c6d45ba24985670bf296, type: 2}
   projectile: {fileID: 2488996861010169074, guid: 05dd02a04e8bcfa4481cf640cfc794e6,
     type: 3}
   damage: 1
@@ -23,5 +23,5 @@ MonoBehaviour:
   bounceDistance: 0
   freezeTime: 3
   freezeMultiplier: 0.75
-  effectColor: {r: 0, g: 0, b: 0, a: 0}
+  effectColor: {r: 0, g: 1, b: 0.98172855, a: 1}
   combos: []

@@ -23,7 +23,7 @@ MonoBehaviour:
   bounceDistance: 0
   freezeTime: 5
   freezeMultiplier: 0.66
-  effectColor: {r: 0, g: 0, b: 0, a: 0}
+  effectColor: {r: 0, g: 0.347533, b: 1, a: 1}
   combos:
   - type: 0
     config: {fileID: 11400000, guid: cc5dba11acdf62c4580bbddd43bdec39, type: 2}

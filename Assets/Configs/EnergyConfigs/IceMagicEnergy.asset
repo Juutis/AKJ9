@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c2234758e5ca994bb785a95dcac31a9, type: 3}
   m_Name: IceMagicEnergy
   m_EditorClassIdentifier: 
-  type: 2
-  crystalMaterial: {fileID: 2100000, guid: 62315975624051b4186d796cc00c81cb, type: 2}
+  type: 9
+  crystalMaterial: {fileID: 2100000, guid: 60577af11d3769149b35a2b792377ccd, type: 2}
   projectile: {fileID: 2488996861010169074, guid: 031b8e237f0dcba449fd51c161e331bf,
     type: 3}
   damage: 3
@@ -23,5 +23,5 @@ MonoBehaviour:
   bounceDistance: 0
   freezeTime: 3
   freezeMultiplier: 0.75
-  effectColor: {r: 0, g: 0.4195919, b: 1, a: 1}
+  effectColor: {r: 0.5433755, g: 0, b: 1, a: 1}
   combos: []

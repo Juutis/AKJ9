@@ -43,7 +43,7 @@ public class EnemySpawner : MonoBehaviour
         }
         else if (enemiesSpawned < currentBatch.enemyCount)
         {
-            Debug.Log("Spawning now " + Time.fixedTime);
+            //Debug.Log("Spawning now " + Time.fixedTime);
             if (Time.fixedTime - lastSpawned > currentBatch.spawnTime)
             {
                 GameObject enemy = pool.ActivateObject(spawnPoint.position);
