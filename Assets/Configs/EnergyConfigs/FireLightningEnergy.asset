@@ -18,8 +18,8 @@ MonoBehaviour:
     type: 3}
   damage: 1
   speed: 75
-  explodeRange: 4
-  bounces: 3
+  explodeRange: 1.5
+  bounces: 0
   bounceDistance: 2
   freezeTime: 0
   freezeMultiplier: 0

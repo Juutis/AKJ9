@@ -20,24 +20,24 @@ public class EnergyTypeConfig : ScriptableObject
     public GameObject Projectile { get { return projectile; } }
 
     [SerializeField]
-    private int damage;
-    public int Damage { get { return damage; } }
+    private float damage;
+    public float Damage { get { return damage; } }
 
     [SerializeField]
     private float speed = 50f;
     public float Speed { get { return speed; } }
 
     [SerializeField]
-    private int explodeRange;
-    public int ExplodeRange { get { return explodeRange; } }
+    private float explodeRange;
+    public float ExplodeRange { get { return explodeRange; } }
 
     [SerializeField]
     private int bounces = 0;
     public int Bounces { get { return bounces; } }
 
     [SerializeField]
-    private int bounceDistance = 0;
-    public int BounceDistance { get { return bounceDistance; } }
+    private float bounceDistance = 0;
+    public float BounceDistance { get { return bounceDistance; } }
 
     [SerializeField]
     private float freezeTime;
