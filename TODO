@@ -1,0 +1,61 @@
+- Ideas
+  - Tower destroys enemies after they hit once
+    - One enemy = one damage
+    - No clutter at the base of the tower
+
+Todo:
+  ☐ Enemy
+    ☐ Movement
+    ☐ Attacking at correct range
+    ☐ Different types?
+    ☐ Debuffs?
+  ☐ Spawning
+    ✔ Waves? @done(20-06-21 00:40)
+    ✘ Dynamic placement? @cancelled(20-06-21 00:40)
+    ✔ Configuration/level management @done(20-06-21 00:40)
+  ☐ Waves
+    ✔ Multiple spawn points @done(20-06-21 00:40)
+    ✔ Steps @done(20-06-21 00:40)
+      ✔ Prepare time @done(20-06-21 00:40)
+      ✔ Wave spawns one enemy at a time from each spawner @done(20-06-21 00:40)
+    ✔ Time to beat the wave @done(20-06-21 00:41)
+    ☐ Skip to the next wave
+      ☐ Make a small CD so you can't spam accidentally
+      ☐ If previous wave is still going queue the new wave
+    ✔ ScriptableObject configuration @done(20-06-21 00:41)
+  ☐ Energy Towers
+    ☐ Different elements
+    ✔ Connecting to towers @done(20-06-21 00:41)
+  ☐ Tower shooty shoot
+    ✔ Shoots when activated @done(20-06-21 00:42)
+    ☐ Deals damage
+    ☐ Debuffs/damage types
+  ☐ Score
+  ☐ UI
+  ☐ Tutorial
+  ☐ Level
+  ☐ Music
+  ☐ Sounds
+  ☐ Game start
+  ☐ Game end
+  ☐ Menu
+
+
+
+Wave
+  End of wave wait time
+  Spawn
+    Batch
+      (Time from start)
+      Wait (seconds, float)
+      Spawns (number of type x) 
+
+1. Wave starts
+2. Batch starts
+3. Wait batch start time
+4. Spawn enemy
+5. Wait spawn cooldown
+6. repeat 4-5 until batch is over
+7. repeat 2-6 until wave is over
+8. wait wave end time
+9. repeat
