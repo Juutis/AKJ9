@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolConfigs:
-  - prefab: {fileID: 7283142958793387812, guid: 7a63dbc76e1489841a5a04b44e1969c8,
+  - prefab: {fileID: 8372095341262088627, guid: bc81d3d1c4db50b4e80b9aead1e65cfb,
       type: 3}
     poolSize: 50
     strictPoolSize: 1
@@ -65,6 +65,10 @@ MonoBehaviour:
     poolSize: 50
     strictPoolSize: 1
   - prefab: {fileID: 2488996861010169074, guid: 12d3b6f184732b143b17c9c66c4d30a8,
+      type: 3}
+    poolSize: 50
+    strictPoolSize: 1
+  - prefab: {fileID: 5165195129775582213, guid: 4230677b2e6a26846891e56109660e03,
       type: 3}
     poolSize: 50
     strictPoolSize: 1
