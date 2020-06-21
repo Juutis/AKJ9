@@ -12,6 +12,9 @@ public class TowerProjectile : MonoBehaviour
 
     bool damaged = false;
 
+    [SerializeField]
+    GameObject explosion;
+
     List<GameObject> targetsHit = new List<GameObject>();
     private int bouncesLeft;
 
@@ -53,6 +56,11 @@ public class TowerProjectile : MonoBehaviour
                     target.TakeDamage(energyTypeConfig);
                 }
                 
+                if (explosion != null)
+                {
+                    var expl = Instantiate(explosion);
+                    expl.transform.position = transform.position;
+                }
                 targetsHit.Add(target.gameObject);
 
                 if (!TryBounce()) 
