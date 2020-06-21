@@ -54,6 +54,11 @@ public class EnergyTypeConfig : ScriptableObject
     [SerializeField]
     private List<EnergyTypePair> combos;
     public List<EnergyTypePair> Combos { get { return combos; } }
+
+    public EnergyTypeConfig GetCombo(EnergyTypes type)
+    {
+        return combos.Where(x => x.type == type).FirstOrDefault().config;
+    }
 }
 
 [Serializable]
