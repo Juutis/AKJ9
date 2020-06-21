@@ -5,15 +5,7 @@ using System.Linq;
 
 public class TowerProjectile : MonoBehaviour
 {
-    [SerializeField]
-    private float Speed = 50f;
-
-    [SerializeField]
-    private int Bounces = 0;
-
-    [SerializeField]
-    private int BounceDistance = 0;
-
+    private EnergyTypeConfig energyTypeConfig;
     private Goblin target;
     private float minDistance = 0.01f;
     private int damage = 1;
@@ -28,7 +20,7 @@ public class TowerProjectile : MonoBehaviour
         target = targetGoblin;
         damaged = false;
         targetsHit = new List<GameObject>();
-        bouncesLeft = Bounces;
+        bouncesLeft = energyTypeConfig.Bounces;
     }
 
     void Update()
@@ -41,17 +33,17 @@ public class TowerProjectile : MonoBehaviour
             var targetDir = (targetPos - transform.position).normalized;
             var targetDist = Vector3.Distance(transform.position, targetPos);
 
-            if (targetDist < Speed * Time.deltaTime)
+            if (targetDist < energyTypeConfig.Speed * Time.deltaTime)
             {
                 transform.position = targetPos;
             }
             else
             {
-                transform.position = transform.position + targetDir * Speed * Time.deltaTime;
+                transform.position = transform.position + targetDir * energyTypeConfig.Speed * Time.deltaTime;
             }
             
             if (Vector3.Distance(transform.position, targetPos) < minDistance && !damaged) {
-                target.TakeDamage(damage);
+                target.TakeDamage(energyTypeConfig);
                 targetsHit.Add(target.gameObject);
 
                 if (!TryBounce()) 
@@ -101,7 +93,7 @@ public class TowerProjectile : MonoBehaviour
             }
         }
 
-        if (nearest != null && nearestDist < BounceDistance)
+        if (nearest != null && nearestDist < energyTypeConfig.BounceDistance)
         {
             return nearest.GetComponent<Goblin>();
         }
@@ -111,5 +103,10 @@ public class TowerProjectile : MonoBehaviour
     private float TargetDistance(GameObject target)
     {
         return Vector3.Distance(transform.position, target.transform.position);
+    }
+
+    public void SetConfig(EnergyTypeConfig config)
+    {
+        energyTypeConfig = config;
     }
 }

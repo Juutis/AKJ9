@@ -109,6 +109,7 @@ public class Tower : Targetable
         Vector3 pos = transform.position;
         pos.y = 1.5f;
         projectile.transform.position = pos;
+        projectile.SetConfig(config);
         projectile.Launch(currentTarget);
     }
 
