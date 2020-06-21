@@ -17,7 +17,7 @@ MonoBehaviour:
   projectile: {fileID: 2488996861010169074, guid: 031b8e237f0dcba449fd51c161e331bf,
     type: 3}
   damage: 1
-  speed: 50
+  speed: 6
   explodeRange: 0
   bounces: 0
   bounceDistance: 0
