@@ -8,7 +8,7 @@ public class HitPointBar : MonoBehaviour
     private Text txtHp;
     private Image imgBackground;
     private Image imgForeground;
-    private int maxHp;
+    private float maxHp;
     Transform camTransform;
     Quaternion originalRotation;
 
@@ -17,7 +17,7 @@ public class HitPointBar : MonoBehaviour
     float originalForeGroundWidth;
     Gradient hpGradient;
 
-    public void Initialize(int initialHp)
+    public void Initialize(float initialHp)
     {
         mainRT = GetComponent<RectTransform>();
         hpGradient = Configs.main.UIStyle.HPGradient;
@@ -50,7 +50,7 @@ public class HitPointBar : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void UpdateHp(int newHp)
+    public void UpdateHp(float newHp)
     {
         if (newHp <= 0)
         {
@@ -59,7 +59,7 @@ public class HitPointBar : MonoBehaviour
         if (txtHp.enabled) {
             txtHp.text = "{0}/{1}".Format(newHp, maxHp);
         }
-        float percentage = ((float)newHp / (float)maxHp);
+        float percentage = (newHp / maxHp);
 
         imgForeground.color = hpGradient.Evaluate(percentage);
         imgForegroundRT.sizeDelta = new Vector2(

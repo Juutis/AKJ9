@@ -12,7 +12,7 @@ public class WorldSpaceUI : MonoBehaviour
     }
     private Transform container;
 
-    public HitPointBar GetHitPointBar(int hp) {
+    public HitPointBar GetHitPointBar(float hp) {
         HitPointBar hpBar = Prefabs.Instantiate<HitPointBar>();
         hpBar.Initialize(hp);
         hpBar.transform.SetParent(container);
