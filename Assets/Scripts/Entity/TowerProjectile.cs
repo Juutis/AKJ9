@@ -8,7 +8,7 @@ public class TowerProjectile : MonoBehaviour
     private EnergyTypeConfig energyTypeConfig;
     private Goblin target;
     private float minDistance = 0.01f;
-    private int damage = 1;
+    private float damage = 1;
 
     bool damaged = false;
 

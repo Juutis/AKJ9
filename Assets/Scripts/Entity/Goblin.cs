@@ -8,7 +8,7 @@ public class Goblin : MonoBehaviour
     private HitPointBar hpBar;
 
     private NavMeshAgent agent;
-    private int health = 5; //TODO: Config!
+    private float health = 5; //TODO: Config!
     private float agentSpeed; //TODO: Config!
     private float freezed = 0f;
     private float freezeStarted = 0f;
