@@ -62,18 +62,40 @@ public class EnemySpawnManager : MonoBehaviour
         {
             phase = SpawnPhase.Ended;
         }
+        else if (phase == SpawnPhase.Waiting)
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                skipWaveWaitingPeriod();
+            }
+        }
         else if (phase == SpawnPhase.Ended)
         {
-            if (waves.Count > currentWaveIndex + 1)
-            {
-                currentWaveIndex++;
-                currentWave = waves[currentWaveIndex];
-                phase = SpawnPhase.Spawning;
-            }
-            else
-            {
-                //end
-            }
+            waveEndStuff();
+        }
+    }
+
+    private void skipWaveWaitingPeriod()
+    {
+        Debug.Log("Skipped a wave waiting period!");
+        waveEndStuff();
+        if (waves.Count > currentWaveIndex + 1) // no cheating at the end of the game!
+        {
+            ScoreManager.main.AddMultiplier(currentWave.MultiplierDuration);
+        }
+    }
+
+    private void waveEndStuff()
+    {
+        if (waves.Count > currentWaveIndex + 1)
+        {
+            currentWaveIndex++;
+            currentWave = waves[currentWaveIndex];
+            phase = SpawnPhase.Spawning;
+        }
+        else
+        {
+            //end
         }
     }
 }

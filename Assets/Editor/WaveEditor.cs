@@ -11,11 +11,13 @@ public class WaveEditor : UnityEditor.Editor
 {
     List<ReorderableList> batchLists;
     SerializedProperty waitTime;
+    SerializedProperty multiplierDuration;
 
     private void OnEnable()
     {
         batchLists = new List<ReorderableList>();
         waitTime = serializedObject.FindProperty("waveEndWaitTime");
+        multiplierDuration = serializedObject.FindProperty("multiplierDuration");
 
         Rect rect = new Rect();
         for (int i = 1; i <= 4; i++)
@@ -96,6 +98,7 @@ public class WaveEditor : UnityEditor.Editor
         }
 
         waitTime.floatValue = EditorGUILayout.FloatField("End of wave wait time (s)", waitTime.floatValue);
+        multiplierDuration.floatValue = EditorGUILayout.FloatField("Wave skipping multiplier lasts (s)", multiplierDuration.floatValue);
         serializedObject.ApplyModifiedProperties();
     }
 }

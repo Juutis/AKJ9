@@ -8,8 +8,11 @@ public class Goblin : MonoBehaviour
     private HitPointBar hpBar;
 
     private NavMeshAgent agent;
-    private float health = 5; //TODO: Config!
-    private float agentSpeed; //TODO: Config!
+    [SerializeField]
+    private int score = 5;
+    [SerializeField]
+    private float health = 5;
+    private float agentSpeed;
     private float freezed = 0f;
     private float freezeStarted = 0f;
     private float freezeMult = 1f;
@@ -62,6 +65,7 @@ public class Goblin : MonoBehaviour
     }
     private void Die()
     {
+        ScoreManager.main.AddScore(score);
         Destroy(gameObject);
     }
 }

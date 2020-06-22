@@ -86,6 +86,7 @@ public class EnemySpawner : MonoBehaviour
         wait = true;
         started = true;
         waitingStarted = Time.time;
+        enemiesSpawned = 0; 
     }
 
     public void SetEnemyConfig(EnemyConfig config)
