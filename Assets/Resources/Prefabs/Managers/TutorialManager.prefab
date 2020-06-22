@@ -326,36 +326,6 @@ MonoBehaviour:
   - dialogTarget: {fileID: 8522624315786666059}
     title: Your castle
     description: This is your castle. You die when it goes down.
-  - dialogTarget: {fileID: 8522624316440404936}
-    title: Powers, magic
-    description: Purple is a magic missile. It's the main damage type.
-  - dialogTarget: {fileID: 8522624316440404936}
-    title: Powers, magic
-    description: Purple is a magic missile. It's the main damage type.
-  - dialogTarget: {fileID: 8522624316440404936}
-    title: Powers, magic
-    description: Purple is a magic missile. It's the main damage type.
-  - dialogTarget: {fileID: 8522624316440404936}
-    title: Powers, magic
-    description: Purple is a magic missile. It's the main damage type.
-  - dialogTarget: {fileID: 8522624316440404936}
-    title: Powers, magic
-    description: Purple is a magic missile. It's the main damage type.
-  - dialogTarget: {fileID: 8522624316440404936}
-    title: Powers, magic
-    description: Purple is a magic missile. It's the main damage type.
-  - dialogTarget: {fileID: 8522624316440404936}
-    title: Powers, magic
-    description: Purple is a magic missile. It's the main damage type.
-  - dialogTarget: {fileID: 8522624316440404936}
-    title: Powers, magic
-    description: Purple is a magic missile. It's the main damage type.
-  - dialogTarget: {fileID: 8522624316440404936}
-    title: Powers, magic
-    description: Purple is a magic missile. It's the main damage type.
-  - dialogTarget: {fileID: 8522624316440404936}
-    title: Powers, magic
-    description: Purple is a magic missile. It's the main damage type.
 --- !u!1 &8522624317236204986
 GameObject:
   m_ObjectHideFlags: 0

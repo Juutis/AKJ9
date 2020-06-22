@@ -37,6 +37,7 @@ public class Goblin : MonoBehaviour
         isAlive = true;
         if (hpBar != null)
         {
+            hpBar.UpdateHp(health);
             hpBar.Show();
         }
     }
