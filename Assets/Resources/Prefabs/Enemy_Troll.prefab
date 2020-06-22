@@ -65,6 +65,11 @@ PrefabInstance:
     - target: {fileID: 4923829085005884403, guid: 7a63dbc76e1489841a5a04b44e1969c8,
         type: 3}
       propertyPath: maxHealth
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4923829085005884403, guid: 7a63dbc76e1489841a5a04b44e1969c8,
+        type: 3}
+      propertyPath: score
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7283142958793387812, guid: 7a63dbc76e1489841a5a04b44e1969c8,
@@ -75,7 +80,7 @@ PrefabInstance:
     - target: {fileID: 7283142958793387994, guid: 7a63dbc76e1489841a5a04b44e1969c8,
         type: 3}
       propertyPath: m_Speed
-      value: 0.4
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7283142958793387999, guid: 7a63dbc76e1489841a5a04b44e1969c8,
         type: 3}

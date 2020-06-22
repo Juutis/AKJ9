@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 682e7ccb1ed17d74eb504b16729f2aa9, type: 3}
-  m_Name: FirstWave
+  m_Name: 1
   m_EditorClassIdentifier: 
-  waveEndWaitTime: 60
+  waveEndWaitTime: 50
   multiplierDuration: 60
   spawn1:
     batches: []
@@ -25,4 +25,8 @@ MonoBehaviour:
     - waitTime: 0
       spawnTime: 3
       enemyCount: 2
+      enemyType: 0
+    - waitTime: 5
+      spawnTime: 3
+      enemyCount: 3
       enemyType: 0

@@ -71,6 +71,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 currentBatch = wave.batches[currentBatchIndex];
                 GameObject prefab = enemyConfig.Enemies.Where(x => x.type == currentBatch.enemyType).First().prefab;
+                pool = ObjectPooler.GetPool(prefab);
                 wait = true;
                 waitingStarted = Time.fixedTime;
                 enemiesSpawned = 0;
