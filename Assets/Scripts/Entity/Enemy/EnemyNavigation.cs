@@ -28,7 +28,7 @@ public class EnemyNavigation : MonoBehaviour
 
         agent.SetDestination(castle.transform.position);
 
-        if(Vector3.Distance(transform.position, castle.transform.position) < 1.5f)
+        if(Vector3.Distance(transform.position, castle.transform.position) < 1.0f)
         {
             goblin.KillHPBar();
             Debug.Log("I hit you!");
