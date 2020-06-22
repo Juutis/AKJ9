@@ -48,10 +48,16 @@ public class EnemySpawner : MonoBehaviour
             {
                 GameObject enemy = pool.ActivateObject(spawnPoint.position);
                 EnemyNavigation nav = enemy.GetComponent<EnemyNavigation>();
+                Goblin gob = enemy.GetComponent<Goblin>();
 
-                if(nav != null)
+                if (nav != null)
                 {
                     nav.SetTarget(baseTower);
+                }
+
+                if (gob != null)
+                {
+                    gob.Initialize();
                 }
 
                 lastSpawned = Time.fixedTime;
@@ -86,7 +92,7 @@ public class EnemySpawner : MonoBehaviour
         wait = true;
         started = true;
         waitingStarted = Time.time;
-        enemiesSpawned = 0; 
+        enemiesSpawned = 0;
     }
 
     public void SetEnemyConfig(EnemyConfig config)
