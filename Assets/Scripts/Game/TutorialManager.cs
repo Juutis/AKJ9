@@ -14,6 +14,9 @@ public class TutorialManager : MonoBehaviour
 
     public static TutorialManager main;
 
+    private bool started = false;
+    private bool finished = false;
+
     void Awake()
     {
         main = this;
@@ -22,7 +25,12 @@ public class TutorialManager : MonoBehaviour
     public void StartTutorial() {
         started = true;
     }
-    private bool started = false;
+
+    public bool GetFinished()
+    {
+        return finished;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,11 +62,15 @@ public class TutorialManager : MonoBehaviour
                 dialog = null;
             }
 
-            if (Input.GetKeyDown(KeyCode.Return))
+            if (Input.GetKeyDown(KeyCode.Return) || currentStep >= steps.Count)
             {
-                dialog.Hide();
+                if (dialog != null)
+                {
+                    dialog.Hide();
+                }
                 dialog = null;
                 currentStep = steps.Count;
+                finished = true;
             }
         }
     }

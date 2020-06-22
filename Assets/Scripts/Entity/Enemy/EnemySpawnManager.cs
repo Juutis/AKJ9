@@ -66,7 +66,7 @@ public class EnemySpawnManager : MonoBehaviour
         }
         else if (phase == SpawnPhase.Waiting)
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            if(Input.GetKeyDown(KeyCode.Space) && TutorialManager.main.GetFinished())
             {
                 skipWaveWaitingPeriod();
                 UIManager.main.HideIntermissionInfo();
