@@ -63,48 +63,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2baff7b15ca309647b6024bcf678ac0f, type: 2}
   - {fileID: 11400000, guid: f8830644b7467c04c847691c24597ff3, type: 2}
   - {fileID: 11400000, guid: f0f5e43d1b4461a45bec6d69d061b1de, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
-  - {fileID: 11400000, guid: b236e5dcb3b3d7449a8457ba28dc5cb4, type: 2}
+  - {fileID: 11400000, guid: 5bb3dbc4d5d91d9478721c51e14f5cab, type: 2}
+  - {fileID: 11400000, guid: eff1abc0f8e12514b9bc6ced3bcf97c8, type: 2}
+  - {fileID: 11400000, guid: 8632979a4223d374b99505e7f508c630, type: 2}
+  - {fileID: 11400000, guid: 541c01481c7d46141b760222454cc55a, type: 2}
+  - {fileID: 11400000, guid: 1d17a128bc0650744bd2eebf5c62ab78, type: 2}
+  - {fileID: 11400000, guid: 60a4412740a92ea438e5d8d36310c135, type: 2}
+  - {fileID: 11400000, guid: 427eb2db6d4d25846971cd84d1ae1b42, type: 2}
+  - {fileID: 11400000, guid: 6c306a6896737d0498a1249c7cd0cd67, type: 2}
+  - {fileID: 11400000, guid: 1605dfc2cf107fb41867f60a52f58b99, type: 2}
+  - {fileID: 11400000, guid: 9fa4a5b22d0a3b842a97de7670ad1444, type: 2}
   enemyConfig: {fileID: 11400000, guid: c6945f74ab9a18c47a9d5caeef9e218d, type: 2}
-  currentWaveIndex: 0
+  currentWaveIndex: 19
 --- !u!1001 &1389155660147691279
 PrefabInstance:
   m_ObjectHideFlags: 0
