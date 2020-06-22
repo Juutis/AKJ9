@@ -19,11 +19,12 @@ public class Tower : Targetable
     private float firingTimer = 0f;
     
     private List<Energy> currentEnergies = new List<Energy>();
+    private List<Energy> reservedEnergies = new List<Energy>();
     private List<BillboardIcon> effectIcons = new List<BillboardIcon>();
     private List<BillboardIcon> damageIcon = new List<BillboardIcon>();
 
     private bool Connected { get { return currentEnergies.Count > 0; } }
-    public bool AcceptConnections { get { return currentEnergies.Count < 2; } }
+    public bool AcceptConnections { get { return reservedEnergies.Count < 2; } }
 
     private Goblin currentTarget;
     private HoverIndicator distanceIndicator;
@@ -90,8 +91,14 @@ public class Tower : Targetable
     public void Disconnect(Energy energy)
     {
         currentEnergies.Remove(energy);
+        reservedEnergies.Remove(energy);
         UpdateEnergies();
         UpdateIcons();
+    }
+
+    public void ReserveEnergy(Energy energy)
+    {
+        reservedEnergies.Add(energy);
     }
 
     private void UpdateIcons() {

@@ -27,7 +27,7 @@ public class Goblin : MonoBehaviour
 
     public void Initialize()
     {
-        health = 5;
+        health = maxHealth;
         freezed = 0f;
         freezeStarted = 0f;
         freezeMult = 1f;
@@ -99,6 +99,11 @@ public class Goblin : MonoBehaviour
         pool.DeactivateObject(gameObject);
         isAlive = false;
 
+    }
+
+    public void SetAlive(bool alive)
+    {
+        isAlive = alive;
     }
 
     public bool IsAlive()

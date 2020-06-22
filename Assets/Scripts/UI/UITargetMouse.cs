@@ -85,6 +85,7 @@ public class UITargetMouse : MonoBehaviour
                 indicator.ShowNormal();
                 if (LeftClick)
                 {
+                    hoveredTower.ReserveEnergy(currentEnergy);
                     currentEnergy.Connect(hoveredTower);
                     currentEnergy = null;
                     lineFollow.Hide();
