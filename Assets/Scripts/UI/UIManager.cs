@@ -168,7 +168,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private bool showIntermission;
+    private bool showIntermission = true;
 
     public void HideIntermissionTimer()
     {
