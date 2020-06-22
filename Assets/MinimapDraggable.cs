@@ -58,29 +58,29 @@ public class MinimapDraggable :
         Vector2 dir = Vector2.zero;
         Vector2 mous = Input.mousePosition;
         Vector2 minimapControlPos = new Vector2(
-            (miniMapControl.anchoredPosition.x + miniMapControl.sizeDelta.x / 2) / 200f,
-            (miniMapControl.anchoredPosition.y + miniMapControl.sizeDelta.y / 2) / 200f
+            (miniMapControl.anchoredPosition.x + miniMapControl.sizeDelta.x / 2f) / 200f,
+            (miniMapControl.anchoredPosition.y + miniMapControl.sizeDelta.y / 2f) / 200f
         );
         
-        if (mous.x > Screen.width / 2 && minimapControlPos.x <= 1)
+        if (mous.x > Screen.width / 2 && minimapControlPos.x <= 0.9f)
         {
             if (mous.x > Screen.width || Mathf.Abs(Screen.width - mous.x) <= border)
             {
                 dir.x = 1f;
             }
         }
-        else if (mous.x <= border && minimapControlPos.x >= 0)
+        else if (mous.x <= border && minimapControlPos.x >= 0.2f)
         {
             dir.x = -1f;
         }
-        if (mous.y > Screen.height / 2 && minimapControlPos.y <= 1)
+        if (mous.y > Screen.height / 2 && minimapControlPos.y <= 0.85f)
         {
             if (mous.y > Screen.height || Mathf.Abs(Screen.height - mous.y) <= border)
             {
                 dir.y = 1f;
             }
         }
-        else if (mous.y <= border && minimapControlPos.y >= 0)
+        else if (mous.y <= border && minimapControlPos.y >= 0.25f)
         {
             dir.y = -1f;
         }
@@ -101,12 +101,12 @@ public class MinimapDraggable :
             (miniMapControl.anchoredPosition.y + miniMapControl.sizeDelta.y / 2) / 200f
         );
         mouseOnMiniMap = new Vector2(
-            Mathf.Clamp(mouseOnMiniMap.x, 0f, 1f),
-            Mathf.Clamp(mouseOnMiniMap.y, 0f, 1f)
+            Mathf.Clamp(mouseOnMiniMap.x, 0.2f, 0.9f),
+            Mathf.Clamp(mouseOnMiniMap.y, 0.25f, 0.85f)
         );
         minimapControlPos = new Vector2(
-            Mathf.Clamp(minimapControlPos.x, 0f, 1f),
-            Mathf.Clamp(minimapControlPos.y, 0f, 1f)
+            Mathf.Clamp(minimapControlPos.x, 0.2f, 0.9f),
+            Mathf.Clamp(minimapControlPos.y, 0.25f, 0.85f)
         );
         Vector2 ret = (mouseOnMiniMap - minimapControlPos);
         return ret;
