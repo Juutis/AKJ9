@@ -13,7 +13,7 @@ public class UIIntermission : MonoBehaviour
         if (!container.activeSelf) {
             container.SetActive(true);
         }
-        txtTime.text = time.ToString("F2") + "s";
+        txtTime.text = (int)time + "s";
     }
 
     // Update is called once per frame
