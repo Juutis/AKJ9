@@ -25,13 +25,15 @@ public class ScoreManager : MonoBehaviour
     public void AddMultiplier(float time)
     {
         multiplierLastsUntil.Add(Time.time + time);
+        UIManager.main.UpdateMultiplier(GetMultiplier());
     }
 
-    public void AddScore(int score)
+    public void AddScore(int addition)
     {
         if(!gameOver)
         {
-            this.score = score * GetMultiplier();
+            this.score += addition * GetMultiplier();
+            UIManager.main.UpdateScore(addition, score);
         }
     }
 
@@ -50,6 +52,7 @@ public class ScoreManager : MonoBehaviour
         if(multiplierLastsUntil.Count > 0 && Time.time > multiplierLastsUntil[0])
         {
             multiplierLastsUntil.RemoveAt(0);
+            UIManager.main.UpdateMultiplier(GetMultiplier());
         }
     }
 }
