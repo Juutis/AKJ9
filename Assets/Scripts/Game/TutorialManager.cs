@@ -15,7 +15,7 @@ public class TutorialManager : MonoBehaviour
     public static TutorialManager main;
 
     private bool started = false;
-    private bool finished = false;
+    private bool finished = true;
 
     void Awake()
     {
@@ -24,6 +24,7 @@ public class TutorialManager : MonoBehaviour
 
     public void StartTutorial() {
         started = true;
+        finished = false;
     }
 
     public bool GetFinished()
