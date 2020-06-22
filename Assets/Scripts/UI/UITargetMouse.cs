@@ -66,33 +66,44 @@ public class UITargetMouse : MonoBehaviour
         {
             indicator.ShowAt(hoveredTower.transform.position);
             lineFollow.SetEnd(hoveredTower.transform.position);
-            if (LeftClick)
+
+            if (currentEnergy.CurrentTower == hoveredTower)
             {
-                if (currentEnergy.CurrentTower != hoveredTower)
+                lineFollow.ShowNormal();
+                indicator.ShowNormal();
+                if (LeftClick)
+                {
+                    lineFollow.Hide();
+                    currentEnergy = null;
+                }
+            }
+            else if (hoveredTower.AcceptConnections)
+            {
+                lineFollow.ShowNormal();
+                indicator.ShowNormal();
+                if (LeftClick)
                 {
                     currentEnergy.Connect(hoveredTower);
                     currentEnergy = null;
                     lineFollow.Hide();
                     indicator.Hide();
                 }
-                else
-                {
-                    lineFollow.Hide();
-                    currentEnergy = null;
-                }
+            }
+            else
+            {
+                lineFollow.ShowError();
+                indicator.ShowError();
             }
         }
         else
         {
             indicator.Hide();
+            lineFollow.ShowNormal();
+            indicator.ShowNormal();
             bool mouseHitGround = Tools.MouseCast(out hit, groundLayer);
             if (mouseHitGround)
             {
                 lineFollow.SetEnd(hit.point);
-            }
-            if (RightClick || CancelKeyDown) {
-                lineFollow.Hide();
-                currentEnergy = null;
             }
             if (LeftClick)
             {
@@ -100,6 +111,11 @@ public class UITargetMouse : MonoBehaviour
                 lineFollow.Hide();
                 currentEnergy = null;
             }
+        }
+        if (RightClick || CancelKeyDown)
+        {
+            lineFollow.Hide();
+            currentEnergy = null;
         }
     }
 

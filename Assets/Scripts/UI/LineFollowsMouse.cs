@@ -38,4 +38,13 @@ public class LineFollowsMouse : MonoBehaviour
     public void Show() {
         line.Show();
     }
+
+    public void ShowError()
+    {
+        line.SetGradient(Configs.main.UIStyle.HoveringErrorGradient);
+    }
+    public void ShowNormal()
+    {
+        line.SetGradient(Configs.main.UIStyle.HoveringLineGradient);
+    }
 }

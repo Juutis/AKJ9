@@ -19,4 +19,14 @@ public class ShowIndicatorOnTargetable : MonoBehaviour
     public void Hide() {
         hoverIndicator.Hide();
     }
+
+    public void ShowError()
+    {
+        hoverIndicator.SetColorTint(Color.red);
+    }
+
+    public void ShowNormal()
+    {
+        hoverIndicator.SetColorTint(Color.green);
+    }
 }
