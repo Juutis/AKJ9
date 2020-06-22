@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 9
   crystalMaterial: {fileID: 2100000, guid: 60577af11d3769149b35a2b792377ccd, type: 2}
-  projectile: {fileID: 2488996861010169074, guid: 031b8e237f0dcba449fd51c161e331bf,
+  projectile: {fileID: 2488996861010169074, guid: a55c571b4c250c249b8b74a3ffec3f3e,
     type: 3}
   damage: 3
   speed: 50
