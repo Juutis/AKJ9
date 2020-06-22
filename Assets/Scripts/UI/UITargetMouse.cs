@@ -9,6 +9,7 @@ public class UITargetMouse : MonoBehaviour
     private ShowIndicatorOnTargetable indicator;
     private LineFollowsMouse lineFollow;
     private bool LeftClick { get { return Input.GetMouseButtonDown(0); } }
+    private bool RightClick { get { return Input.GetMouseButtonDown(1); } }
     private bool CancelKeyDown { get { return Input.GetKey(KeyCode.Escape) || Input.GetKey(KeyCode.Q); } }
     private RaycastHit hit;
 
@@ -53,16 +54,24 @@ public class UITargetMouse : MonoBehaviour
     private void HandleConnecting()
     {
         Tower hoveredTower = GetHoveredTarget<Tower>();
-        if (hoveredTower != null && currentEnergy.CurrentTower != hoveredTower)
+        if (hoveredTower != null)
         {
             indicator.ShowAt(hoveredTower.transform.position);
             lineFollow.SetEnd(hoveredTower.transform.position);
             if (LeftClick)
             {
-                currentEnergy.Connect(hoveredTower);
-                currentEnergy = null;
-                lineFollow.Hide();
-                indicator.Hide();
+                if (currentEnergy.CurrentTower != hoveredTower)
+                {
+                    currentEnergy.Connect(hoveredTower);
+                    currentEnergy = null;
+                    lineFollow.Hide();
+                    indicator.Hide();
+                }
+                else
+                {
+                    lineFollow.Hide();
+                    currentEnergy = null;
+                }
             }
         }
         else
@@ -73,7 +82,13 @@ public class UITargetMouse : MonoBehaviour
             {
                 lineFollow.SetEnd(hit.point);
             }
-            if (LeftClick || CancelKeyDown) {
+            if (RightClick || CancelKeyDown) {
+                lineFollow.Hide();
+                currentEnergy = null;
+            }
+            if (LeftClick)
+            {
+                currentEnergy.Disconnect();
                 lineFollow.Hide();
                 currentEnergy = null;
             }

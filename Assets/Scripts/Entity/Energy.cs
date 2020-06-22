@@ -57,4 +57,19 @@ public class Energy : Targetable
         line.Show();
         currentTower = tower;
     }
+
+    public void Disconnect()
+    {
+        if (currentTower != null)
+        {
+            currentTower.Disconnect(this);
+        }
+        if (line == null)
+        {
+            InitializeLine();
+        }
+        line.Hide();
+        squiggle.Hide();
+        currentTower = null;
+    }
 }

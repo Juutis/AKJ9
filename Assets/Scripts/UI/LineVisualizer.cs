@@ -59,6 +59,7 @@ public class LineVisualizer : MonoBehaviour
     public void Hide()
     {
         lineRenderer.enabled = false;
+        isAnimating = false;
     }
     public void Show()
     {
