@@ -20,6 +20,7 @@ public class UITargetMouse : MonoBehaviour
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Confined;
         InitializeComponents();
 
         foreach (var obj in GameObject.FindGameObjectsWithTag("Energy"))
