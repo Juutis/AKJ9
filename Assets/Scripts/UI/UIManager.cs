@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     private Transform worldSpaceCanvas;
     private HUDScore hudScore;
     private UIMenu uiMenu;
+    private UIIntermission uIIntermission;
     public Transform WorldSpaceCanvas { get { return worldSpaceCanvas; } }
 
     public Transform UICanvas { get { return uiCanvas; } }
@@ -36,6 +37,7 @@ public class UIManager : MonoBehaviour
     {
         uiMenu = GetComponentInChildren<UIMenu>();
         energyIndicators = GetComponentsInChildren<ChosenEnergyIndicator>().ToList();
+        uIIntermission = GetComponentInChildren<UIIntermission>();
         ShowGameStart();
     }
 
@@ -46,6 +48,18 @@ public class UIManager : MonoBehaviour
         endMenuOpen = false;
         gameOverMenuOpen = false;
         Unpause();
+    }
+
+    public void HideIntermissionInfo () {
+        if (uIIntermission != null) {
+            uIIntermission.Hide();
+        }
+    }
+    public void UpdateIntermissionInfo (float time) {
+        if (uIIntermission == null) {
+            uIIntermission = GetComponentInChildren<UIIntermission>();
+        }
+        uIIntermission.UpdateTime(time);
     }
 
     public void ClearEnergyIndicators()
