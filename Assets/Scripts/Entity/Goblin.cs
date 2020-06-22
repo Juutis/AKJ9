@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -50,7 +51,7 @@ public class Goblin : MonoBehaviour
     {
         if (freezeStarted != 0 && freezeMult < 1)
         {
-            if(Time.fixedTime - freezeStarted > freezed)
+            if (Time.fixedTime - freezeStarted > freezed)
             {
                 freezeMult = 1;
                 freezeStarted = 0;
@@ -78,11 +79,13 @@ public class Goblin : MonoBehaviour
         hpBar.UpdateHp(health);
     }
 
-    void Update() {
+    void Update()
+    {
         hpBar.UpdatePosition(transform.position);
     }
 
-    public void KillHPBar() {
+    public void KillHPBar()
+    {
         hpBar.Hide();
     }
     private void Die()
@@ -90,6 +93,7 @@ public class Goblin : MonoBehaviour
         var effectPos = transform.position + Vector3.down * 1.0f;
         var effect = ObjectPooler.GetPool(dieEffect).ActivateObject(effectPos).GetComponent<OneShotEffect>();
         effect.Play();
+
         ScoreManager.main.AddScore(score);
         //Destroy(gameObject);
         pool.DeactivateObject(gameObject);

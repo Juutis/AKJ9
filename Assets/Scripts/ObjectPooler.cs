@@ -55,6 +55,7 @@ public class Pool
     {
         this.strict = strict;
         this.size = size;
+        this.prefab = prefab;
         objects = new List<GameObject>();
         activeObjects = new List<GameObject>();
         inactiveObjects = new List<GameObject>();

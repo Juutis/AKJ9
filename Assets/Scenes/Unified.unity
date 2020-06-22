@@ -2038,6 +2038,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6172561792326211352, guid: e37c44b5128478948b24a3598a521b59,
+        type: 3}
+      propertyPath: poolConfigs.Array.data[1].poolSize
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172561792326211352, guid: e37c44b5128478948b24a3598a521b59,
+        type: 3}
+      propertyPath: poolConfigs.Array.data[2].poolSize
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172561792326211352, guid: e37c44b5128478948b24a3598a521b59,
+        type: 3}
+      propertyPath: poolConfigs.Array.data[3].poolSize
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172561792326211352, guid: e37c44b5128478948b24a3598a521b59,
+        type: 3}
+      propertyPath: poolConfigs.Array.data[4].poolSize
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172561792326211352, guid: e37c44b5128478948b24a3598a521b59,
+        type: 3}
+      propertyPath: poolConfigs.Array.data[5].poolSize
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172561792326211352, guid: e37c44b5128478948b24a3598a521b59,
+        type: 3}
+      propertyPath: poolConfigs.Array.data[16].poolSize
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6172561792326211430, guid: e37c44b5128478948b24a3598a521b59,
         type: 3}
       propertyPath: m_LocalPosition.x
