@@ -10,7 +10,7 @@ public class Squiggle : MonoBehaviour
     private Vector2 currentOffset;
     private LineRenderer lineRenderer;
     private bool isActive = false;
-    public void Initialize(Vector3 start, Vector3 end)
+    public void Initialize(Vector3 start, Vector3 end, Color color)
     {
         lineRenderer = GetComponentInChildren<LineRenderer>();
         squiggleMaterial = lineRenderer.material;
@@ -21,6 +21,9 @@ public class Squiggle : MonoBehaviour
         currentOffset = originalOffset;
         lineRenderer.enabled = true;
         isActive = true;
+
+        squiggleMaterial.color = color;
+        squiggleMaterial.mainTextureScale = new Vector2(Vector3.Distance(start, end), 1);
     }
 
     public void Hide() {

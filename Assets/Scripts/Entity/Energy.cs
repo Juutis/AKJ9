@@ -27,7 +27,10 @@ public class Energy : Targetable
 
     public void HasAnimated() {
         currentTower.Connect(this);
-        squiggle.Initialize(transform.position, currentTower.transform.position);
+        
+        var config = Configs.main.EnergyTypeConfigs[energyType.Type];
+
+        squiggle.Initialize(transform.position, currentTower.transform.position, config.EffectColor);
     }
 
     public void Connect(Tower tower)
