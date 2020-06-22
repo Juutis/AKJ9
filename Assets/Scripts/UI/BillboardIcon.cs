@@ -65,7 +65,9 @@ public class BillboardIcon :
     public void Die()
     {
         Destroy(gameObject);
-        Destroy(infoDialog.gameObject);
+        if (infoDialog != null) {
+            Destroy(infoDialog.gameObject);
+        }
     }
 
     void Update()
