@@ -21,7 +21,7 @@ public class BaseTower : MonoBehaviour
         if (hp <= 0)
         {
             Debug.Log("I die");
-            hitPointBar.Die();
+            hitPointBar.Hide();
             Destroy(gameObject);
         }
     }

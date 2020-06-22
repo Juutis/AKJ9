@@ -28,6 +28,10 @@ public class Goblin : MonoBehaviour
         freezeStarted = 0f;
         freezeMult = 1f;
         isAlive = true;
+        if (hpBar != null)
+        {
+            hpBar.Show();
+        }
     }
 
     private void Start()
@@ -76,7 +80,7 @@ public class Goblin : MonoBehaviour
     }
 
     public void KillHPBar() {
-        hpBar.Die();
+        hpBar.Hide();
     }
     private void Die()
     {
