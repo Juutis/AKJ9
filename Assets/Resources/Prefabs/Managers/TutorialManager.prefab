@@ -306,7 +306,7 @@ MonoBehaviour:
     description: Connect it to a tower by clicking the crystal and then a tower.
   - dialogTarget: {fileID: 8522624315892511822}
     title: Crystals and towers
-    description: You have 4 different crystals. They have unique powers
+    description: You have 4 different crystals. They have unique powers.
   - dialogTarget: {fileID: 8522624317236204981}
     title: Powers, magic
     description: Purple is a magic missile. It's the main damage type.
@@ -321,7 +321,7 @@ MonoBehaviour:
     description: Red is fire. It creates an explosion on hit.
   - dialogTarget: {fileID: 8522624315723860269}
     title: Combinations
-    description: If you connect two source to a tower, amazing magic happens. Try
+    description: If you connect two sources to a tower, amazing magic happens. Try
       it out!
   - dialogTarget: {fileID: 8522624315786666059}
     title: Your castle

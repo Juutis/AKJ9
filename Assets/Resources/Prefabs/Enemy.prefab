@@ -216,7 +216,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c3e1bb288dc6f8b4cac050e0c9a48a25, type: 3}
   - {fileID: 8300000, guid: 6c2af0e52548b6f46a7a16fcc0d079ea, type: 3}
   idleVolume: 0.796
-  footStepVolume: 0.569
+  footStepVolume: 0.66
   footStepSound: {fileID: 8300000, guid: a5da76b49bb2d9b4084f75c3d572816e, type: 3}
 --- !u!82 &-4707895624837465552
 AudioSource:
