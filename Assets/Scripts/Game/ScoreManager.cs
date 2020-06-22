@@ -51,6 +51,5 @@ public class ScoreManager : MonoBehaviour
         {
             multiplierLastsUntil.RemoveAt(0);
         }
-        Debug.Log("Score: " + this.score + ", Multiplier: " + this.GetMultiplier());
     }
 }

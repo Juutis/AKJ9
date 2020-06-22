@@ -7,6 +7,7 @@ public class TowerProjectile : MonoBehaviour
 {
     private EnergyTypeConfig energyTypeConfig;
     private Goblin target;
+    private Vector3 previousTargetPos;
     private float minDistance = 0.01f;
     private float damage = 1;
 
@@ -58,6 +59,12 @@ public class TowerProjectile : MonoBehaviour
         if (target != null && !dying)
         {
             Vector3 targetPos = target.transform.position;
+
+            if (!target.IsAlive())
+            {
+                targetPos = previousTargetPos;
+            }
+
             targetPos.y = 0.5f;
 
             var targetDir = (targetPos - transform.position).normalized;
@@ -71,8 +78,9 @@ public class TowerProjectile : MonoBehaviour
             {
                 transform.position = transform.position + targetDir * energyTypeConfig.Speed * Time.deltaTime;
             }
-            
-            if (Vector3.Distance(transform.position, targetPos) < minDistance) {
+
+            if (Vector3.Distance(transform.position, targetPos) < minDistance)
+            {
 
                 if (energyTypeConfig.ExplodeRange > 0) //projectile is aoe, find targets
                 {
@@ -82,7 +90,7 @@ public class TowerProjectile : MonoBehaviour
                 {
                     target.TakeDamage(energyTypeConfig);
                 }
-                
+
                 if (explosion != null)
                 {
                     OneShotEffect expl = ObjectPooler.GetPool(explosion).ActivateObject(transform.position).GetComponent<OneShotEffect>();
@@ -90,13 +98,15 @@ public class TowerProjectile : MonoBehaviour
                 }
                 targetsHit.Add(target.gameObject);
 
-                if (!TryBounce()) 
+                if (!TryBounce())
                 {
                     Invoke("Die", 0.5f);
                     StopEffects();
                     dying = true;
                 }
             }
+
+            previousTargetPos = targetPos;
         }
     }
 

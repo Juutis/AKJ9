@@ -19,6 +19,7 @@ public class Goblin : MonoBehaviour
     private float freezeStarted = 0f;
     private float freezeMult = 1f;
     private Pool pool;
+    private bool isAlive = false;
 
     public void Initialize()
     {
@@ -26,6 +27,7 @@ public class Goblin : MonoBehaviour
         freezed = 0f;
         freezeStarted = 0f;
         freezeMult = 1f;
+        isAlive = true;
     }
 
     private void Start()
@@ -81,5 +83,12 @@ public class Goblin : MonoBehaviour
         ScoreManager.main.AddScore(score);
         //Destroy(gameObject);
         pool.DeactivateObject(gameObject);
+        isAlive = false;
+
+    }
+
+    public bool IsAlive()
+    {
+        return isAlive;
     }
 }
