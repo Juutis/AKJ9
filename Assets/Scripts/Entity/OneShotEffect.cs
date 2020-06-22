@@ -7,6 +7,9 @@ public class OneShotEffect : MonoBehaviour
     List<ParticleSystem> systems = new List<ParticleSystem>();
     Pooled pooled;
 
+    [SerializeField]
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +20,9 @@ public class OneShotEffect : MonoBehaviour
 
     public void Play()
     {
+        if (audioSource != null) {
+            audioSource.Play();
+        }
         foreach (var system in systems)
         {
             system.Play();

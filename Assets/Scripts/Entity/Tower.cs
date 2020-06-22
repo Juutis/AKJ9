@@ -37,6 +37,17 @@ public class Tower : Targetable
     private ParticleSystemRenderer bottomEffect;
 
     private Material origMaterial;
+
+
+    [SerializeField]
+    private AudioSource magicSound;
+
+    [SerializeField]
+    private AudioSource frostSound;
+
+    [SerializeField]
+    private AudioSource lightningSound;
+
     
     private void Start()
     {
@@ -217,6 +228,21 @@ public class Tower : Targetable
         projectile.transform.position = pos;
         projectile.SetConfig(config);
         projectile.Launch(currentTarget);
+        if (config.Type == EnergyTypes.MagicMissile) {
+            if (magicSound != null) {
+                magicSound.Play();
+            }
+        }
+        if (config.Type == EnergyTypes.Ice || config.Type == EnergyTypes.IceMagic || config.Type == EnergyTypes.IceLightning) {
+            if (frostSound != null) {
+                frostSound.Play();
+            }
+        }
+        if (config.Type == EnergyTypes.Lightning) {
+            if (lightningSound != null) {
+                lightningSound.Play();
+            }
+        }
     }
 
     private void Update()
