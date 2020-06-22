@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 17b361619645b6b40b0b720698f55e98, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -195,6 +195,8 @@ MonoBehaviour:
   maxHealth: 5
   dieEffect: {fileID: 5542342329324935081, guid: 755903e52eff9af4d8929d34c6ff71a0,
     type: 3}
+  deathSoundPrefab: {fileID: 696859564611227031, guid: aed75bd4acd4e9d4d83732c7a8f79ed7,
+    type: 3}
 --- !u!114 &-3238160262620040787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,7 +225,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7283142958793387812}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7a197541db8e8aa4985513235147d9bb, type: 3}
