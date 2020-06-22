@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
+using TreeEditor;
 
 public class TowerProjectile : MonoBehaviour
 {
@@ -93,8 +95,26 @@ public class TowerProjectile : MonoBehaviour
 
                 if (explosion != null)
                 {
-                    OneShotEffect expl = ObjectPooler.GetPool(explosion).ActivateObject(transform.position).GetComponent<OneShotEffect>();
-                    expl.Play();
+                    try
+                    {
+                        OneShotEffect expl = ObjectPooler.GetPool(explosion).ActivateObject(transform.position).GetComponent<OneShotEffect>();
+
+                        expl.Play();
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.Log("PASKA LÄSÄHTI!");
+                        Debug.Log("Type: " + energyTypeConfig.Type);
+                        Debug.Log("Explosion: " + explosion);
+                        Debug.Log("Transform pos: " + transform.position);
+                        Pool debugPool = ObjectPooler.GetPool(explosion);
+                        Debug.Log("Pool: " + debugPool);
+                        GameObject debugObj = debugPool.ActivateObject(transform.position);
+                        Debug.Log("Test activating obj: " + debugObj);
+                        OneShotEffect effect = debugObj.GetComponent<OneShotEffect>();
+                        Debug.Log("Test getting OneShotEffect component: " + effect);
+                        throw e;
+                    }
                 }
                 targetsHit.Add(target.gameObject);
 
