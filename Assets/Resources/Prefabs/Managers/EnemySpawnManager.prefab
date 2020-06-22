@@ -74,7 +74,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6c306a6896737d0498a1249c7cd0cd67, type: 2}
   - {fileID: 11400000, guid: 9fa4a5b22d0a3b842a97de7670ad1444, type: 2}
   enemyConfig: {fileID: 11400000, guid: c6945f74ab9a18c47a9d5caeef9e218d, type: 2}
-  currentWaveIndex: 0
+  currentWaveIndex: 19
 --- !u!1001 &1389155660147691279
 PrefabInstance:
   m_ObjectHideFlags: 0

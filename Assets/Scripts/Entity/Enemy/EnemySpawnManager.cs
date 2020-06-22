@@ -33,6 +33,30 @@ public class EnemySpawnManager : MonoBehaviour
 
     void Update()
     {
+        if (currentWaveIndex == waves.Count - 1 && phase != SpawnPhase.Spawning)
+        {
+            bool finished = true;
+            foreach (var go in GameObject.FindGameObjectsWithTag("Goblin"))
+            {
+                Goblin goblin = go.GetComponent<Goblin>();
+                if (goblin.IsAlive())
+                {
+                    finished = false;
+                    break;
+                }
+            }
+            if (finished)
+            {
+                UIManager.main.ShowTheEnd();
+            }
+        }
+
+        if (currentWaveIndex == waves.Count - 1)
+        {
+            UIManager.main.HideIntermissionInfo();
+            UIManager.main.HideIntermissionTimer();
+        }
+
         if (phase == SpawnPhase.Spawning)
         {
             //Debug.Log("Starting to spawn " + Time.fixedTime);

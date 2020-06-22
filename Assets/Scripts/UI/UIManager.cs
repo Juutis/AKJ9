@@ -55,18 +55,26 @@ public class UIManager : MonoBehaviour
             uIIntermission.Hide();
         }
     }
-    public void UpdateIntermissionTimer (float time) {
-        if (uIIntermission == null) {
-            uIIntermission = GetComponentInChildren<UIIntermission>();
+    public void UpdateIntermissionTimer (float time)
+    {
+        if (showIntermission)
+        {
+            if (uIIntermission == null)
+            {
+                uIIntermission = GetComponentInChildren<UIIntermission>();
+            }
+            uIIntermission.UpdateTime(time);
         }
-        uIIntermission.UpdateTime(time);
     }
 
     public void UpdateIntermissionInfo (string info) {
-        if (uIIntermission == null) {
-            uIIntermission = GetComponentInChildren<UIIntermission>();
+        if (showIntermission)
+        {
+            if (uIIntermission == null) {
+                uIIntermission = GetComponentInChildren<UIIntermission>();
+            }
+            uIIntermission.UpdateInfo(info);
         }
-        uIIntermission.UpdateInfo(info);
     }
 
 
@@ -158,5 +166,12 @@ public class UIManager : MonoBehaviour
                 ShowPauseMenu();
             }
         }
+    }
+
+    private bool showIntermission;
+
+    public void HideIntermissionTimer()
+    {
+        showIntermission = false;
     }
 }
