@@ -14,7 +14,7 @@ public class Tower : Targetable
     private readonly string bottomEffectName = "BottomEnergy";
 
     private float maxDistance = 5f;
-    private float firingInterval = 0.5f;
+    private float firingInterval = 1f;
 
     private float firingTimer = 0f;
     
