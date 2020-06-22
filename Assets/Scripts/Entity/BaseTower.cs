@@ -20,7 +20,7 @@ public class BaseTower : MonoBehaviour
     {
         if (hp <= 0)
         {
-            Debug.Log("I die");
+            UIManager.main.ShowGameOver();
             hitPointBar.Hide();
             Destroy(gameObject);
         }
