@@ -31,7 +31,7 @@ public class EnemySpawnManager : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (phase == SpawnPhase.Spawning)
         {
@@ -82,11 +82,13 @@ public class EnemySpawnManager : MonoBehaviour
 
     private void skipWaveWaitingPeriod()
     {
-        Debug.Log("Skipped a wave waiting period!");
         waveEndStuff();
         if (waves.Count > currentWaveIndex + 1) // no cheating at the end of the game!
         {
-            ScoreManager.main.AddMultiplier(previousWave.MultiplierDuration);
+            var waited = Time.time - waitStarted;
+            var waitedPerc = 1 - waited / previousWave.WaveEndWaitTime;
+            Debug.Log("Skipped a wave waiting period! Multiplier duration = " + previousWave.MultiplierDuration * waitedPerc);
+            ScoreManager.main.AddMultiplier(previousWave.MultiplierDuration * waitedPerc);
         }
     }
 
