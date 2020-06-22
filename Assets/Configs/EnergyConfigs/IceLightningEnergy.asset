@@ -17,11 +17,11 @@ MonoBehaviour:
   projectile: {fileID: 2488996861010169074, guid: 112ea5ce3cf82ef479e77b52bd389b73,
     type: 3}
   damage: 1
-  speed: 50
+  speed: 75
   explodeRange: 0
-  bounces: 3
+  bounces: 5
   bounceDistance: 2
   freezeTime: 3
   freezeMultiplier: 0.75
-  effectColor: {r: 0.680027, g: 1, b: 0, a: 1}
+  effectColor: {r: 0.9876942, g: 1, b: 0.6462264, a: 1}
   combos: []

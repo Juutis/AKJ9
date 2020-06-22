@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2488996861010169072}
   - component: {fileID: 2488996861010169077}
   m_Layer: 0
-  m_Name: LightningProjectile
+  m_Name: LightningMagicProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,9 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2c867aa7b148794c94c65561b5ede1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 100
-  Bounces: 5
-  BounceDistance: 3
+  explosion: {fileID: 0}
 --- !u!1 &6082606759518100861
 GameObject:
   m_ObjectHideFlags: 0
@@ -4807,7 +4805,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 0}
-  - {fileID: 2100000, guid: 4361f76813aeb2d4d851c816d9fd0e79, type: 2}
+  - {fileID: 2100000, guid: 16c2733025e0bc0499b0d74afb7ccbd4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9560,7 +9558,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4361f76813aeb2d4d851c816d9fd0e79, type: 2}
+  - {fileID: 2100000, guid: 16c2733025e0bc0499b0d74afb7ccbd4, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0

@@ -19,9 +19,9 @@ MonoBehaviour:
   damage: 1
   speed: 75
   explodeRange: 1.5
-  bounces: 0
-  bounceDistance: 2
+  bounces: 3
+  bounceDistance: 3
   freezeTime: 0
   freezeMultiplier: 0
-  effectColor: {r: 1, g: 0.4656815, b: 0, a: 1}
+  effectColor: {r: 1, g: 0.3240006, b: 0, a: 1}
   combos: []
