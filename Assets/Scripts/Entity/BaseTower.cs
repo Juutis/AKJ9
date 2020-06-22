@@ -8,7 +8,7 @@ public class BaseTower : MonoBehaviour
     private HitPointBar hitPointBar;
     void Start()
     {
-        hitPointBar = WorldSpaceUI.main.GetHitPointBar(hp);
+        hitPointBar = UIManager.main.GetHitPointBar(hp);
         Vector3 hpBarPos = transform.position;
         hpBarPos.y = 4f;
         hitPointBar.SetSize(new Vector2(200, 20));

@@ -99,3 +99,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  magicMissileIcon: {fileID: 21300000, guid: 10a765e88ef0f6b41bfb424d9e6c19d9, type: 3}
+  FireIcon: {fileID: 21300000, guid: 01ab203e04ccabe48ad298e61de2e51b, type: 3}
+  LightningIcon: {fileID: 21300000, guid: d86ad8c5cfd772c48af578de16669e2b, type: 3}
+  IceIcon: {fileID: 21300000, guid: dde538f359f36ee4f87703ea859c6cd0, type: 3}

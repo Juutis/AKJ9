@@ -39,7 +39,7 @@ public class Goblin : MonoBehaviour
 
     private void Start()
     {
-        hpBar = WorldSpaceUI.main.GetHitPointBar(health);
+        hpBar = UIManager.main.GetHitPointBar(health);
         agent = GetComponent<NavMeshAgent>();
         agentSpeed = agent.speed;
         pool = GetComponent<Pooled>().GetPool();

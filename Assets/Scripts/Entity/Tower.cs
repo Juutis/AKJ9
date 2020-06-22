@@ -19,6 +19,8 @@ public class Tower : Targetable
     private float firingTimer = 0f;
     
     private List<Energy> currentEnergies = new List<Energy>();
+    private List<BillboardIcon> effectIcons = new List<BillboardIcon>();
+    private List<BillboardIcon> damageIcon = new List<BillboardIcon>();
 
     private bool Connected { get { return currentEnergies.Count > 0; } }
 
@@ -81,12 +83,37 @@ public class Tower : Targetable
     {
         currentEnergies.Add(energy);
         UpdateEnergies();
+        UpdateIcons();
     }
 
     public void Disconnect(Energy energy)
     {
         currentEnergies.Remove(energy);
         UpdateEnergies();
+        UpdateIcons();
+    }
+
+    private void UpdateIcons() {
+        foreach(BillboardIcon icon in effectIcons) {
+            icon.Die();
+        }
+        effectIcons.Clear();
+        int index = 0;
+        foreach(Energy energy in currentEnergies) {
+            BillboardIcon icon = Prefabs.Instantiate<BillboardIcon>();
+            icon.Initialize(energy.Icon, GetIconPosition(index, icon.RT), energy.Title, energy.Message);
+            effectIcons.Add(icon);
+            index += 1;
+        }
+    }
+
+    private Vector3 GetIconPosition(int index, RectTransform rt) {
+        Vector3 pos = transform.position;
+        pos.y = 3f;
+        if (index == 1) {
+            pos.y += rt.sizeDelta.y * 2 * rt.localScale.y;
+        }
+        return pos;
     }
 
     private void UpdateEnergies()

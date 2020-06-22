@@ -12,17 +12,25 @@ public class Energy : Targetable
     private EnergyType energyType;
     public EnergyType EnergyType { get { return energyType; } }
 
+    private UIStyleConfig config;
+
+    public Sprite Icon {get {return config.GetEnergyTypeIcon(energyType.Type);}}
+    public string Title {get {return config.GetEnergyTypeTitle(energyType.Type);}}
+    public string Message {get {return config.GetEnergyTypeMessage(energyType.Type);}}
+
     private void Start()
     {
+        config = Configs.main.UIStyle;
         energyType = GetComponent<EnergyType>();
     }
 
-    private void InitializeLine() {
+    private void InitializeLine()
+    {
         squiggle = Prefabs.Instantiate<Squiggle>();
         line = Prefabs.Instantiate<LineVisualizer>();
         line.Initialize(HasAnimated);
         line.transform.parent = transform;
-        line.SetGradient(Configs.main.UIStyle.ActiveConnectionGradient);
+        line.SetGradient(config.ActiveConnectionGradient);
     }
 
     public void HasAnimated() {
@@ -43,7 +51,7 @@ public class Energy : Targetable
         {
             InitializeLine();
         }
-        
+
         line.SetStartPoint(this.transform.position);
         line.SetEndPoint(tower.transform.position);
         line.Show();
