@@ -108,6 +108,10 @@ MonoBehaviour:
       type: 3}
     poolSize: 10
     strictPoolSize: 1
+  - prefab: {fileID: 5542342329324935081, guid: 755903e52eff9af4d8929d34c6ff71a0,
+      type: 3}
+    poolSize: 50
+    strictPoolSize: 1
   - prefab: {fileID: 8501036925947958849, guid: f314523536420204580a876ceac25cb7,
       type: 3}
     poolSize: 10
