@@ -29,7 +29,7 @@ public class GenericDialog : MonoBehaviour
 
     public void Initialize(string title, string message, Transform target, Vector2 size)
     {
-        Initialize(message, title, target);
+        Initialize(title, message, target);
         rectTransform.sizeDelta = size;
     }
     
