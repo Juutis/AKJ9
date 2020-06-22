@@ -17,6 +17,9 @@ public class Goblin : MonoBehaviour
     [SerializeField]
     private GameObject dieEffect;
 
+    [SerializeField]
+    private GameObject deathSoundPrefab;
+
     private float health = 5;
     private float agentSpeed;
     private float freezed = 0f;
@@ -93,12 +96,13 @@ public class Goblin : MonoBehaviour
         var effectPos = transform.position + Vector3.down * 1.0f;
         var effect = ObjectPooler.GetPool(dieEffect).ActivateObject(effectPos).GetComponent<OneShotEffect>();
         effect.Play();
+        GameObject x = Instantiate(deathSoundPrefab);
+        x.transform.position = transform.position;
 
         ScoreManager.main.AddScore(score);
         //Destroy(gameObject);
         pool.DeactivateObject(gameObject);
         isAlive = false;
-
     }
 
     public bool IsAlive()
