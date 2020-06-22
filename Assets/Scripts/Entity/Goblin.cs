@@ -100,6 +100,8 @@ public class Goblin : MonoBehaviour
         x.transform.position = transform.position;
 
         ScoreManager.main.AddScore(score);
+        BillboardScore billboardScore = Prefabs.Instantiate<BillboardScore>();
+        billboardScore.Initialize(transform.position, score);
         //Destroy(gameObject);
         pool.DeactivateObject(gameObject);
         isAlive = false;
