@@ -55,12 +55,20 @@ public class UIManager : MonoBehaviour
             uIIntermission.Hide();
         }
     }
-    public void UpdateIntermissionInfo (float time) {
+    public void UpdateIntermissionTimer (float time) {
         if (uIIntermission == null) {
             uIIntermission = GetComponentInChildren<UIIntermission>();
         }
         uIIntermission.UpdateTime(time);
     }
+
+    public void UpdateIntermissionInfo (string info) {
+        if (uIIntermission == null) {
+            uIIntermission = GetComponentInChildren<UIIntermission>();
+        }
+        uIIntermission.UpdateInfo(info);
+    }
+
 
     public void ClearEnergyIndicators()
     {

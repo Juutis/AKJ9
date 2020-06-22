@@ -1514,6 +1514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txtTime: {fileID: 1251970867855461187}
+  txtInfo: {fileID: 5492209726577074167}
   container: {fileID: 4526541955042327885}
 --- !u!1 &1978587760519500147
 GameObject:
@@ -3662,8 +3663,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 63.37, y: 10.25}
-  m_SizeDelta: {x: -227.18036, y: -60.501038}
+  m_AnchoredPosition: {x: 110.2, y: 10.25}
+  m_SizeDelta: {x: -251.55786, y: -60.501038}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8754643688515408179
 CanvasRenderer:
@@ -3949,7 +3950,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Next wave in:'
+  m_Text: 'Wave 1 spawns in:'
 --- !u!114 &8549406246079631804
 MonoBehaviour:
   m_ObjectHideFlags: 0
