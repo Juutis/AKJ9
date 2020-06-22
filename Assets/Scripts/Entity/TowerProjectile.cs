@@ -10,7 +10,7 @@ public class TowerProjectile : MonoBehaviour
     private float minDistance = 0.01f;
     private float damage = 1;
 
-    bool damaged = false;
+    bool dying = false;
 
     [SerializeField]
     GameObject explosion;
@@ -18,17 +18,44 @@ public class TowerProjectile : MonoBehaviour
     List<GameObject> targetsHit = new List<GameObject>();
     private int bouncesLeft;
 
+    Pooled pooled;
+    List<ParticleSystem> particleSystems = new List<ParticleSystem>();
+
+    void Start()
+    {
+        particleSystems.AddRange(GetComponents<ParticleSystem>());
+        particleSystems.AddRange(GetComponentsInChildren<ParticleSystem>());
+        pooled = GetComponent<Pooled>();
+    }
+
+    public void PlayEffects()
+    {
+        foreach (var system in particleSystems)
+        {
+            system.Play();
+        }
+    }
+
+    public void StopEffects()
+    {
+        foreach (var system in particleSystems)
+        {
+            system.Stop();
+        }
+    }
+
     public void Launch(Goblin targetGoblin)
     {
         target = targetGoblin;
-        damaged = false;
+        dying = false;
         targetsHit = new List<GameObject>();
         bouncesLeft = energyTypeConfig.Bounces;
+        PlayEffects();
     }
 
     void Update()
     {
-        if (target != null)
+        if (target != null && !dying)
         {
             Vector3 targetPos = target.transform.position;
             targetPos.y = 0.5f;
@@ -45,7 +72,7 @@ public class TowerProjectile : MonoBehaviour
                 transform.position = transform.position + targetDir * energyTypeConfig.Speed * Time.deltaTime;
             }
             
-            if (Vector3.Distance(transform.position, targetPos) < minDistance && !damaged) {
+            if (Vector3.Distance(transform.position, targetPos) < minDistance) {
 
                 if (energyTypeConfig.ExplodeRange > 0) //projectile is aoe, find targets
                 {
@@ -58,15 +85,16 @@ public class TowerProjectile : MonoBehaviour
                 
                 if (explosion != null)
                 {
-                    var expl = Instantiate(explosion);
-                    expl.transform.position = transform.position;
+                    OneShotEffect expl = ObjectPooler.GetPool(explosion).ActivateObject(transform.position).GetComponent<OneShotEffect>();
+                    expl.Play();
                 }
                 targetsHit.Add(target.gameObject);
 
                 if (!TryBounce()) 
                 {
                     Invoke("Die", 0.5f);
-                    damaged = true;
+                    StopEffects();
+                    dying = true;
                 }
             }
         }
@@ -104,8 +132,9 @@ public class TowerProjectile : MonoBehaviour
         return false;
     }
 
-    private void Die() {
-        Destroy(gameObject);
+    private void Die()
+    {
+        pooled.GetPool().DeactivateObject(gameObject);
     }
 
     private Goblin getNextBounceTarget()

@@ -5,12 +5,22 @@ using UnityEngine;
 public class OneShotEffect : MonoBehaviour
 {
     List<ParticleSystem> systems = new List<ParticleSystem>();
+    Pooled pooled;
 
     // Start is called before the first frame update
     void Start()
     {
         systems.AddRange(GetComponents<ParticleSystem>());
         systems.AddRange(GetComponentsInChildren<ParticleSystem>());
+        pooled = GetComponent<Pooled>();
+    }
+
+    public void Play()
+    {
+        foreach (var system in systems)
+        {
+            system.Play();
+        }
     }
 
     // Update is called once per frame
@@ -20,14 +30,14 @@ public class OneShotEffect : MonoBehaviour
         {
             if (system.IsAlive())
             {
-                continue;
+                break;
             }
-            Invoke("Die", 1.0f);
+            Invoke("Die", 0.0f);
         }
     }
 
     void Die()
     {
-        Destroy(gameObject);
+        pooled.GetPool().DeactivateObject(gameObject);
     }
 }
