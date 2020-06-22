@@ -13,6 +13,9 @@ public class Goblin : MonoBehaviour
     [SerializeField]
     private float maxHealth = 5;
 
+    [SerializeField]
+    private GameObject dieEffect;
+
     private float health = 5;
     private float agentSpeed;
     private float freezed = 0f;
@@ -84,6 +87,9 @@ public class Goblin : MonoBehaviour
     }
     private void Die()
     {
+        var effectPos = transform.position + Vector3.down * 1.0f;
+        var effect = ObjectPooler.GetPool(dieEffect).ActivateObject(effectPos).GetComponent<OneShotEffect>();
+        effect.Play();
         ScoreManager.main.AddScore(score);
         //Destroy(gameObject);
         pool.DeactivateObject(gameObject);

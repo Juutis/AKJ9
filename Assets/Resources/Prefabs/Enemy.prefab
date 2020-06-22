@@ -191,6 +191,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 384e904377add3b4c864b115436eabc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 5
+  maxHealth: 5
+  dieEffect: {fileID: 5542342329324935081, guid: 755903e52eff9af4d8929d34c6ff71a0,
+    type: 3}
 --- !u!114 &-3238160262620040787
 MonoBehaviour:
   m_ObjectHideFlags: 0
