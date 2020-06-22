@@ -81,7 +81,7 @@ public class Goblin : MonoBehaviour
 
     void Update()
     {
-        hpBar.UpdatePosition(transform.position);
+        hpBar.UpdatePosition(transform.position + Vector3.up * 0.3f);
     }
 
     public void KillHPBar()
