@@ -15,6 +15,7 @@ public class EnemySpawnManager : MonoBehaviour
     [SerializeField]
     private int currentWaveIndex = 0;
     private WaveConfig currentWave;
+    private WaveConfig previousWave;
 
     private SpawnPhase phase = SpawnPhase.Spawning;
     private bool spawningOnGoing = false;
@@ -30,7 +31,7 @@ public class EnemySpawnManager : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (phase == SpawnPhase.Spawning)
         {
@@ -61,12 +62,16 @@ public class EnemySpawnManager : MonoBehaviour
         else if (phase == SpawnPhase.Waiting && (Time.fixedTime - waitStarted > currentWave.WaveEndWaitTime))
         {
             phase = SpawnPhase.Ended;
+            UIManager.main.HideIntermissionInfo();
         }
         else if (phase == SpawnPhase.Waiting)
         {
             if(Input.GetKeyDown(KeyCode.Space))
             {
                 skipWaveWaitingPeriod();
+                UIManager.main.HideIntermissionInfo();
+            } else {
+                UIManager.main.UpdateIntermissionInfo(currentWave.WaveEndWaitTime - (Time.fixedTime - waitStarted));
             }
         }
         else if (phase == SpawnPhase.Ended)
@@ -77,11 +82,13 @@ public class EnemySpawnManager : MonoBehaviour
 
     private void skipWaveWaitingPeriod()
     {
-        Debug.Log("Skipped a wave waiting period!");
         waveEndStuff();
         if (waves.Count > currentWaveIndex + 1) // no cheating at the end of the game!
         {
-            ScoreManager.main.AddMultiplier(currentWave.MultiplierDuration);
+            var waited = Time.time - waitStarted;
+            var waitedPerc = 1 - waited / previousWave.WaveEndWaitTime;
+            Debug.Log("Skipped a wave waiting period! Multiplier duration = " + previousWave.MultiplierDuration * waitedPerc);
+            ScoreManager.main.AddMultiplier(previousWave.MultiplierDuration * waitedPerc);
         }
     }
 
@@ -89,6 +96,7 @@ public class EnemySpawnManager : MonoBehaviour
     {
         if (waves.Count > currentWaveIndex + 1)
         {
+            previousWave = currentWave;
             currentWaveIndex++;
             currentWave = waves[currentWaveIndex];
             phase = SpawnPhase.Spawning;

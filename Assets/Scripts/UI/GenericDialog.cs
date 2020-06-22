@@ -36,6 +36,9 @@ public class GenericDialog : MonoBehaviour
     
     public void UpdatePosition() {
         Vector2 viewportPoint = Camera.main.WorldToViewportPoint(target.position);
+        Debug.Log(viewportPoint);
+        viewportPoint.y = Mathf.Clamp(viewportPoint.y, 0f, 0.7f);
+        viewportPoint.x = Mathf.Clamp(viewportPoint.x, 0f, 0.7f);
         rectTransform.anchorMin = viewportPoint;
         rectTransform.anchorMax = viewportPoint;
     }

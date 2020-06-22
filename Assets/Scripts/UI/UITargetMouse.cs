@@ -32,6 +32,7 @@ public class UITargetMouse : MonoBehaviour
     {
         currentEnergy = energy;
         lineFollow.SetStart(currentEnergy.transform.position);
+        UIManager.main.IndicateEnergy(energy.EnergyType.Type);
     }
 
     private void InitializeComponents()
@@ -75,6 +76,7 @@ public class UITargetMouse : MonoBehaviour
                 {
                     lineFollow.Hide();
                     currentEnergy = null;
+                    UIManager.main.ClearEnergyIndicators();
                 }
             }
             else if (hoveredTower.AcceptConnections)
@@ -83,10 +85,12 @@ public class UITargetMouse : MonoBehaviour
                 indicator.ShowNormal();
                 if (LeftClick)
                 {
+                    hoveredTower.ReserveEnergy(currentEnergy);
                     currentEnergy.Connect(hoveredTower);
                     currentEnergy = null;
                     lineFollow.Hide();
                     indicator.Hide();
+                    UIManager.main.ClearEnergyIndicators();
                 }
             }
             else
@@ -110,12 +114,14 @@ public class UITargetMouse : MonoBehaviour
                 currentEnergy.Disconnect();
                 lineFollow.Hide();
                 currentEnergy = null;
+                UIManager.main.ClearEnergyIndicators();
             }
         }
         if (RightClick || CancelKeyDown)
         {
             lineFollow.Hide();
             currentEnergy = null;
+            UIManager.main.ClearEnergyIndicators();
         }
     }
 
@@ -154,14 +160,16 @@ public class UITargetMouse : MonoBehaviour
 
     void Update()
     {
-        HandleShortcutConnectables();
-        if (Connecting)
-        {
-            HandleConnecting();
-        }
-        else
-        {
-            HandleHoveringConnectables();
+        if (!UIManager.main.GameIsPaused) {
+            HandleShortcutConnectables();
+            if (Connecting)
+            {
+                HandleConnecting();
+            }
+            else
+            {
+                HandleHoveringConnectables();
+            }
         }
     }
 }

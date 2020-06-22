@@ -30,7 +30,7 @@ public class Goblin : MonoBehaviour
 
     public void Initialize()
     {
-        health = 5;
+        health = maxHealth;
         freezed = 0f;
         freezeStarted = 0f;
         freezeMult = 1f;
@@ -84,7 +84,7 @@ public class Goblin : MonoBehaviour
 
     void Update()
     {
-        hpBar.UpdatePosition(transform.position);
+        hpBar.UpdatePosition(transform.position + Vector3.up * 0.3f);
     }
 
     public void KillHPBar()
@@ -103,6 +103,11 @@ public class Goblin : MonoBehaviour
         //Destroy(gameObject);
         pool.DeactivateObject(gameObject);
         isAlive = false;
+    }
+
+    public void SetAlive(bool alive)
+    {
+        isAlive = alive;
     }
 
     public bool IsAlive()

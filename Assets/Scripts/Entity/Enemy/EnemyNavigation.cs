@@ -10,11 +10,13 @@ public class EnemyNavigation : MonoBehaviour
     private BaseTower castle;
 
     private Goblin goblin;
+    private Pool pool;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         goblin = GetComponent<Goblin>();
+        pool = GetComponent<Pooled>().GetPool();
     }
 
     // Update is called once per frame
@@ -33,7 +35,9 @@ public class EnemyNavigation : MonoBehaviour
             goblin.KillHPBar();
             Debug.Log("I hit you!");
             castle.TakeDamage(1);
-            Destroy(gameObject);
+
+            pool.DeactivateObject(gameObject);
+            goblin.SetAlive(false);
         }
     }
 
