@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682e7ccb1ed17d74eb504b16729f2aa9, type: 3}
   m_Name: 15
   m_EditorClassIdentifier: 
-  waveEndWaitTime: 120
+  waveEndWaitTime: 100
   multiplierDuration: 120
   spawn1:
     batches:
