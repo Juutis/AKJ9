@@ -100,9 +100,9 @@ public class Goblin : MonoBehaviour
         GameObject x = Instantiate(deathSoundPrefab);
         x.transform.position = transform.position;
 
-        ScoreManager.main.AddScore(score);
+        int addedScore = ScoreManager.main.AddScore(score);
         BillboardScore billboardScore = Prefabs.Instantiate<BillboardScore>();
-        billboardScore.Initialize(transform.position, score);
+        billboardScore.Initialize(transform.position, addedScore);
         //Destroy(gameObject);
         pool.DeactivateObject(gameObject);
         isAlive = false;

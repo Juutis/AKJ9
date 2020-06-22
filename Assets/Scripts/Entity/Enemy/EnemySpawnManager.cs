@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -71,7 +71,9 @@ public class EnemySpawnManager : MonoBehaviour
                 skipWaveWaitingPeriod();
                 UIManager.main.HideIntermissionInfo();
             } else {
-                UIManager.main.UpdateIntermissionInfo(currentWave.WaveEndWaitTime - (Time.fixedTime - waitStarted));
+
+                UIManager.main.UpdateIntermissionInfo("Wave " + (currentWaveIndex + 2) + " spawns in:");
+                UIManager.main.UpdateIntermissionTimer(currentWave.WaveEndWaitTime - (Time.fixedTime - waitStarted));
             }
         }
         else if (phase == SpawnPhase.Ended)

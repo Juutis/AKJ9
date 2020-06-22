@@ -28,13 +28,15 @@ public class ScoreManager : MonoBehaviour
         UIManager.main.UpdateMultiplier(GetMultiplier());
     }
 
-    public void AddScore(int addition)
+    public int AddScore(int addition)
     {
+        int newScore =addition * GetMultiplier();
         if(!gameOver)
         {
-            this.score += addition * GetMultiplier();
+            this.score += newScore;
             UIManager.main.UpdateScore(addition, score);
         }
+        return newScore;
     }
 
     public int GetScore()
