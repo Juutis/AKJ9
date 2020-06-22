@@ -15,9 +15,17 @@ public class UITargetMouse : MonoBehaviour
 
     private Energy currentEnergy = null;
     private bool Connecting { get { return currentEnergy != null; } }
+
+    List<Energy> energies = new List<Energy>();
+
     void Start()
     {
         InitializeComponents();
+
+        foreach (var obj in GameObject.FindGameObjectsWithTag("Energy"))
+        {
+            energies.Add(obj.GetComponent<Energy>());
+        }
     }
 
     public void StartConnecting(Energy energy)
@@ -112,8 +120,25 @@ public class UITargetMouse : MonoBehaviour
         }
     }
 
+    private void HandleShortcutConnectables()
+    {
+        Energy selectedEnergy = null;
+        foreach (var energy in energies)
+        {
+            if (Input.GetKeyDown(energy.shortcut))
+            {
+                selectedEnergy = energy;
+            }
+        }
+        if (selectedEnergy != null)
+        {
+            StartConnecting(selectedEnergy);
+        }
+    }
+
     void Update()
     {
+        HandleShortcutConnectables();
         if (Connecting)
         {
             HandleConnecting();

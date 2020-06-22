@@ -18,6 +18,9 @@ public class Energy : Targetable
     public string Title {get {return config.GetEnergyTypeTitle(energyType.Type);}}
     public string Message {get {return config.GetEnergyTypeMessage(energyType.Type);}}
 
+    [SerializeField]
+    public KeyCode shortcut;
+
     private void Start()
     {
         config = Configs.main.UIStyle;
