@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 5
   crystalMaterial: {fileID: 2100000, guid: 433856258bf4c6d45ba24985670bf296, type: 2}
-  projectile: {fileID: 2488996861010169074, guid: 05dd02a04e8bcfa4481cf640cfc794e6,
+  projectile: {fileID: 2488996861010169074, guid: 9198029b21dfeea468f27594f1de1fc3,
     type: 3}
   damage: 1
-  speed: 50
+  speed: 8
   explodeRange: 1.5
   bounces: 0
   bounceDistance: 0
   freezeTime: 3
   freezeMultiplier: 0.75
-  effectColor: {r: 0, g: 1, b: 0.98172855, a: 1}
+  effectColor: {r: 0, g: 0.76483536, b: 1, a: 1}
   combos: []

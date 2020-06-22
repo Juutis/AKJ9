@@ -46,8 +46,15 @@ public class HitPointBar : MonoBehaviour
         transform.position = newPos;
     }
 
-    public void Die() {
-        Destroy(gameObject);
+    public void Hide() {
+        imgBackground.enabled = false;
+        imgForeground.enabled = false;
+    }
+
+    public void Show()
+    {
+        imgBackground.enabled = true;
+        imgForeground.enabled = true;
     }
 
     public void UpdateHp(float newHp)

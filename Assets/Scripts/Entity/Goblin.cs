@@ -8,17 +8,42 @@ public class Goblin : MonoBehaviour
     private HitPointBar hpBar;
 
     private NavMeshAgent agent;
-    private float health = 5; //TODO: Config!
-    private float agentSpeed; //TODO: Config!
+    [SerializeField]
+    private int score = 5;
+    [SerializeField]
+    private float maxHealth = 5;
+
+    [SerializeField]
+    private GameObject dieEffect;
+
+    private float health = 5;
+    private float agentSpeed;
     private float freezed = 0f;
     private float freezeStarted = 0f;
     private float freezeMult = 1f;
+    private Pool pool;
+    private bool isAlive = false;
+
+    public void Initialize()
+    {
+        health = 5;
+        freezed = 0f;
+        freezeStarted = 0f;
+        freezeMult = 1f;
+        isAlive = true;
+        if (hpBar != null)
+        {
+            hpBar.Show();
+        }
+    }
 
     private void Start()
     {
         hpBar = UIManager.main.GetHitPointBar(health);
         agent = GetComponent<NavMeshAgent>();
         agentSpeed = agent.speed;
+        pool = GetComponent<Pooled>().GetPool();
+        Initialize();
     }
 
     private void FixedUpdate()
@@ -58,10 +83,22 @@ public class Goblin : MonoBehaviour
     }
 
     public void KillHPBar() {
-        hpBar.Die();
+        hpBar.Hide();
     }
     private void Die()
     {
-        Destroy(gameObject);
+        var effectPos = transform.position + Vector3.down * 1.0f;
+        var effect = ObjectPooler.GetPool(dieEffect).ActivateObject(effectPos).GetComponent<OneShotEffect>();
+        effect.Play();
+        ScoreManager.main.AddScore(score);
+        //Destroy(gameObject);
+        pool.DeactivateObject(gameObject);
+        isAlive = false;
+
+    }
+
+    public bool IsAlive()
+    {
+        return isAlive;
     }
 }

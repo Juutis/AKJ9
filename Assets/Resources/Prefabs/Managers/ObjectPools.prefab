@@ -54,21 +54,65 @@ MonoBehaviour:
     strictPoolSize: 1
   - prefab: {fileID: 2488996861010169074, guid: a51569cca5ad02d4ab6bf0edaa0a0837,
       type: 3}
-    poolSize: 50
+    poolSize: 5
     strictPoolSize: 1
   - prefab: {fileID: 2488996861010169074, guid: 42d1279c4f60b0b429123004d9ccd88d,
       type: 3}
-    poolSize: 50
+    poolSize: 5
     strictPoolSize: 1
   - prefab: {fileID: 2488996861010169074, guid: 031b8e237f0dcba449fd51c161e331bf,
       type: 3}
-    poolSize: 50
+    poolSize: 5
     strictPoolSize: 1
   - prefab: {fileID: 2488996861010169074, guid: 12d3b6f184732b143b17c9c66c4d30a8,
       type: 3}
-    poolSize: 50
+    poolSize: 5
     strictPoolSize: 1
   - prefab: {fileID: 5165195129775582213, guid: 4230677b2e6a26846891e56109660e03,
       type: 3}
     poolSize: 50
+    strictPoolSize: 1
+  - prefab: {fileID: 2488996861010169074, guid: 70a400ea185efe74e8daf7f5cd0aa42d,
+      type: 3}
+    poolSize: 50
+    strictPoolSize: 1
+  - prefab: {fileID: 2488996861010169074, guid: 9198029b21dfeea468f27594f1de1fc3,
+      type: 3}
+    poolSize: 5
+    strictPoolSize: 1
+  - prefab: {fileID: 2488996861010169074, guid: 4aa8c9688fd8cec438f06206dbec1487,
+      type: 3}
+    poolSize: 5
+    strictPoolSize: 1
+  - prefab: {fileID: 2488996861010169074, guid: 112ea5ce3cf82ef479e77b52bd389b73,
+      type: 3}
+    poolSize: 5
+    strictPoolSize: 1
+  - prefab: {fileID: 2488996861010169074, guid: a55c571b4c250c249b8b74a3ffec3f3e,
+      type: 3}
+    poolSize: 5
+    strictPoolSize: 1
+  - prefab: {fileID: 2488996861010169074, guid: d84cd218e6d179a4f8814fd71aaab591,
+      type: 3}
+    poolSize: 5
+    strictPoolSize: 1
+  - prefab: {fileID: 8501036925947958849, guid: eba7e58116e056f4793977bd60f6b794,
+      type: 3}
+    poolSize: 10
+    strictPoolSize: 1
+  - prefab: {fileID: 8501036925947958849, guid: 37e150250fa71814b86ac110dda9c413,
+      type: 3}
+    poolSize: 10
+    strictPoolSize: 1
+  - prefab: {fileID: 8501036925947958849, guid: 2015c83989ea284478d3f463546253a4,
+      type: 3}
+    poolSize: 10
+    strictPoolSize: 1
+  - prefab: {fileID: 5542342329324935081, guid: 755903e52eff9af4d8929d34c6ff71a0,
+      type: 3}
+    poolSize: 50
+    strictPoolSize: 1
+  - prefab: {fileID: 8501036925947958849, guid: f314523536420204580a876ceac25cb7,
+      type: 3}
+    poolSize: 10
     strictPoolSize: 1

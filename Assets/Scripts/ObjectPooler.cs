@@ -64,6 +64,8 @@ public class Pool
             GameObject obj = GameObject.Instantiate(prefab, new Vector3(0, 1000f, 0), Quaternion.identity);
             obj.SetActive(false);
             obj.transform.parent = parent;
+            var pooled = obj.AddComponent<Pooled>();
+            pooled.SetPool(this);
             objects.Add(obj);
             inactiveObjects.Add(obj);
         }

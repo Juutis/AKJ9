@@ -76,6 +76,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4707895624837465552, guid: 7a63dbc76e1489841a5a04b44e1969c8,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3238160262620040787, guid: 7a63dbc76e1489841a5a04b44e1969c8,
+        type: 3}
+      propertyPath: idleSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: b739b06a784406643b18e8eb9bac6f36, type: 3}
+    - target: {fileID: -3238160262620040787, guid: 7a63dbc76e1489841a5a04b44e1969c8,
+        type: 3}
+      propertyPath: idleSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: ff0b2c87e5a5fa440b780277bcec321b, type: 3}
+    - target: {fileID: -3238160262620040787, guid: 7a63dbc76e1489841a5a04b44e1969c8,
+        type: 3}
+      propertyPath: idleSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: b9d63cb3031810d49a26048c122bf3ba, type: 3}
+    - target: {fileID: -3238160262620040787, guid: 7a63dbc76e1489841a5a04b44e1969c8,
+        type: 3}
+      propertyPath: idleSounds.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: b9d63cb3031810d49a26048c122bf3ba, type: 3}
+    - target: {fileID: 2798544138417039635, guid: 7a63dbc76e1489841a5a04b44e1969c8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7283142958793387812, guid: 7a63dbc76e1489841a5a04b44e1969c8,
         type: 3}
       propertyPath: m_Name

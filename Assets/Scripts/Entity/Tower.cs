@@ -13,7 +13,7 @@ public class Tower : Targetable
     private readonly string topEffectName = "TopEnergy";
     private readonly string bottomEffectName = "BottomEnergy";
 
-    private float minDistance = 5f;
+    private float maxDistance = 5f;
     private float firingInterval = 1f;
 
     private float firingTimer = 0f;
@@ -44,7 +44,7 @@ public class Tower : Targetable
         Color color = Color.cyan;
         color.a = 0.1f;
         distanceIndicator.SetColor(color);
-        distanceIndicator.SetSize(minDistance);
+        distanceIndicator.SetSize(maxDistance);
         towerMesh = GetComponentInChildren<TowerMesh>();
         firingTimer = firingInterval + 1f;
 
@@ -191,7 +191,7 @@ public class Tower : Targetable
             }
         }
 
-        if (nearest != null && nearestDist < minDistance)
+        if (nearest != null && nearestDist < maxDistance)
         {
             return nearest.GetComponent<Goblin>();
         }
@@ -218,7 +218,7 @@ public class Tower : Targetable
             if (firingTimer > firingInterval)
             {
                 firingTimer = 0f;
-                if (currentTarget == null)
+                if (currentTarget == null || !currentTarget.IsAlive() || TargetDistance(currentTarget.gameObject) > maxDistance)
                 {
                     currentTarget = GetNextTarget();
                 }

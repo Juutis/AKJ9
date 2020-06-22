@@ -12,6 +12,10 @@ public class WaveConfig : ScriptableObject
     public float WaveEndWaitTime { get { return waveEndWaitTime; } }
 
     [SerializeField]
+    private float multiplierDuration;
+    public float MultiplierDuration { get { return multiplierDuration; } }
+
+    [SerializeField]
     private WaveSpawn spawn1;
     public WaveSpawn Spawn1 { get { return spawn1; } }
 
