@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BaseTower : MonoBehaviour
 {
-    private int hp = 5;
+    private int hp = 25;
     private HitPointBar hitPointBar;
     void Start()
     {
