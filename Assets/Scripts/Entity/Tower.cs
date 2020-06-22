@@ -39,9 +39,6 @@ public class Tower : Targetable
         distanceIndicator = Prefabs.Instantiate<HoverIndicator>();
         distanceIndicator.transform.parent = transform;
         distanceIndicator.Initialize();
-        Color color = Color.cyan;
-        color.a = 0.1f;
-        distanceIndicator.SetColor(color);
         distanceIndicator.SetSize(maxDistance);
         towerMesh = GetComponentInChildren<TowerMesh>();
         firingTimer = firingInterval + 1f;
@@ -130,6 +127,10 @@ public class Tower : Targetable
 
             topEffect.Play();
             topLight.enabled = true;
+
+            Color color = config.EffectColor;
+            color.a = 0.05f;
+            distanceIndicator.SetColor(color);
         }
     }
 

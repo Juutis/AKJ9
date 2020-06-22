@@ -22,6 +22,7 @@ public class Squiggle : MonoBehaviour
         lineRenderer.enabled = true;
         isActive = true;
 
+        color.a = 0.5f;
         squiggleMaterial.color = color;
         squiggleMaterial.mainTextureScale = new Vector2(Vector3.Distance(start, end), 1);
     }
