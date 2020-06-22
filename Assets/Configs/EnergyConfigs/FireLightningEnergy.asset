@@ -19,7 +19,7 @@ MonoBehaviour:
   damage: 1
   speed: 75
   explodeRange: 1.5
-  bounces: 3
+  bounces: 2
   bounceDistance: 3
   freezeTime: 0
   freezeMultiplier: 0

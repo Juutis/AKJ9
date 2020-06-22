@@ -106,7 +106,7 @@ MonoBehaviour:
     strictPoolSize: 1
   - prefab: {fileID: 8501036925947958849, guid: 2015c83989ea284478d3f463546253a4,
       type: 3}
-    poolSize: 10
+    poolSize: 50
     strictPoolSize: 1
   - prefab: {fileID: 5542342329324935081, guid: 755903e52eff9af4d8929d34c6ff71a0,
       type: 3}
