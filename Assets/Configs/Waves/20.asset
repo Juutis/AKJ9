@@ -34,11 +34,11 @@ MonoBehaviour:
       spawnTime: 0
       enemyCount: 1
       enemyType: 2
-    - waitTime: 10
-      spawnTime: 5
+    - waitTime: 15
+      spawnTime: 3
       enemyCount: 2
       enemyType: 2
-    - waitTime: 10
-      spawnTime: 5
+    - waitTime: 15
+      spawnTime: 3
       enemyCount: 3
       enemyType: 2
