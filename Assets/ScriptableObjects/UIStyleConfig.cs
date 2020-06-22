@@ -8,6 +8,7 @@ public class UIStyleConfig : ScriptableObject
 {
     public Gradient ActiveConnectionGradient;
     public Gradient HoveringLineGradient;
+    public Gradient HoveringErrorGradient;
     public Gradient HPGradient;
 
     [SerializeField]

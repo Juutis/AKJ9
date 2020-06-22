@@ -29,7 +29,10 @@ public class Squiggle : MonoBehaviour
 
     public void Hide() {
         isActive = false;
-        lineRenderer.enabled = false;
+        if (lineRenderer != null)
+        {
+            lineRenderer.enabled = false;
+        }
     }
 
     void Update()

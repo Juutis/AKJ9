@@ -18,6 +18,9 @@ public class Energy : Targetable
     public string Title {get {return config.GetEnergyTypeTitle(energyType.Type);}}
     public string Message {get {return config.GetEnergyTypeMessage(energyType.Type);}}
 
+    [SerializeField]
+    public KeyCode shortcut;
+
     private void Start()
     {
         config = Configs.main.UIStyle;
@@ -56,5 +59,20 @@ public class Energy : Targetable
         line.SetEndPoint(tower.transform.position);
         line.Show();
         currentTower = tower;
+    }
+
+    public void Disconnect()
+    {
+        if (currentTower != null)
+        {
+            currentTower.Disconnect(this);
+        }
+        if (line == null)
+        {
+            InitializeLine();
+        }
+        line.Hide();
+        squiggle.Hide();
+        currentTower = null;
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Goblin
   - BaseTower
+  - Energy
   layers:
   - Default
   - TransparentFX

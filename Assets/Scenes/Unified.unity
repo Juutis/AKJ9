@@ -6541,6 +6541,26 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 5527301629293687306, guid: 957056dbfe8dc5e4185cda56c5d11dfd,
+        type: 3}
+      propertyPath: shortcut
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527301629832660656, guid: 957056dbfe8dc5e4185cda56c5d11dfd,
+        type: 3}
+      propertyPath: shortcut
+      value: 51
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527301629999638587, guid: 957056dbfe8dc5e4185cda56c5d11dfd,
+        type: 3}
+      propertyPath: shortcut
+      value: 49
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527301630833427611, guid: 957056dbfe8dc5e4185cda56c5d11dfd,
+        type: 3}
+      propertyPath: shortcut
+      value: 52
+      objectReference: {fileID: 0}
     - target: {fileID: 5645451910133929182, guid: 957056dbfe8dc5e4185cda56c5d11dfd,
         type: 3}
       propertyPath: m_Layer

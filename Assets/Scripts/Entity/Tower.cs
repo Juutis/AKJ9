@@ -23,6 +23,7 @@ public class Tower : Targetable
     private List<BillboardIcon> damageIcon = new List<BillboardIcon>();
 
     private bool Connected { get { return currentEnergies.Count > 0; } }
+    public bool AcceptConnections { get { return currentEnergies.Count < 2; } }
 
     private Goblin currentTarget;
     private HoverIndicator distanceIndicator;
